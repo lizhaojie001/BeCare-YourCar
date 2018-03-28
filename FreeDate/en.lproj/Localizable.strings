@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  时时彩赛车信息网
+
+  Created by macbook pro on 2018/2/28.
+  Copyright © 2018年 macbook pro. All rights reserved.
+*/
+"스포츠카 정보" = "New Recommendations";
+
+"사용자 명" = "UserName";
+"비밀번호" = "Password";
+"로그인" ="Login";
+"로그인에 실패하다" = "Login Error";
+"사용 자의 이름이나 비밀번호 가 비어 있지 않을 수 없다."="The user name or password cannot be empty.";
+"설치"="Setting";
+"출구"="Logout";
+"에 관"="About";
+"상" = "[excellence]Rich in car styling,A variety of presentation scenarios.Accurate expert evaluation.Vivid video description.[official designation]Official authorizationLegitimate and effective, piracy must be investigated.[privacy protection]Professional development team.Encrypted user dataGood use experience.This is a for vehicle sales users using the App, is committed to creating a fair information sharing platform. Maintenance personnel can timely update the vehicles release information, do use App employees can more timely and more effective and more vivid understanding of the new model, the forefront of the market.[application description]The current application is in a rapid iteration.Current pictures of new car resources and video display.Provide user accounts.Registration is not supported for the time being.Video is a first-line evaluator.In the next version, information entry and other functions will be added.There will also be modules for sales champion presentations.Game leisure module and so on.I hope he becomes your sales assistant.Stay tuned.";
+"적재" = "Video Loading";
+"데이터"="Loading Error";

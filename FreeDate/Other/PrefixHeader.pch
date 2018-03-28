@@ -1,0 +1,51 @@
+//
+//  PrefixHeader.pch
+//  nswy-1
+//
+//  Created by Mac on 16/12/2.
+//  Copyright © 2016年 HBNXWLKJ. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define ZJScreenBounds [UIScreen mainScreen].bounds
+#define ZJScreenW ZJScreenBounds.size.width
+#define ZJScreenH ZJScreenBounds.size.height
+#define ZJRomColor   [UIColor colorWithRed:(arc4random()%255)/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:1.0];
+
+#define ZJThemeColor [UIColor colorWithRed:0.5 green:0.0 blue:0.078 alpha:1.0]
+
+#ifdef DEBUG  //调试阶段
+#define ZJLog(...)  NSLog(__VA_ARGS__)
+#else //发布阶段
+#define ZJLog(...)
+#endif
+#import "ZJUser.h"
+
+#import <Masonry.h>
+#import <MJRefresh.h>
+#import <AVOSCloudSNS.h>
+#import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
+#import <Realm.h>
+#import <ZFPlayer.h>
+
+#import <PYSearch.h>
+
+#import "NetworkTool.h"
+#import "Common.h"
+#import "WGradientProgress.h"
+#import "NXHNaviController.h"
+#import "AFHTTPSessionManager+Method.h"
+#import "ReleaseConfig.h"
+#import "UIView+Layout.h"
+#define ZJlogFunction  ZJLog(@"%s",__FUNCTION__);
+
+
+
+#endif /* PrefixHeader_pch */
+
+
