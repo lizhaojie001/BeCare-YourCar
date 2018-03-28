@@ -28,6 +28,7 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 .p12
+.docx
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However
