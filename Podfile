@@ -1,7 +1,8 @@
 source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 target 'FreeDate' do
-
+#use_frameworks!
+ pod 'YYKit'
  pod "PYSearch"
  pod 'SDWebImage'
  pod 'MJRefresh'
@@ -22,4 +23,5 @@ pod 'UMCShare/Social/ReducedQQ'
 # 集成新浪微博(精简版1M)
 pod 'UMCShare/Social/ReducedSina'
 pod 'UMCAnalytics'
+pod 'ReactiveObjC' 
 end

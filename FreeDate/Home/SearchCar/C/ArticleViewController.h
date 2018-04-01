@@ -3,4 +3,5 @@
 @property (nonatomic,assign) NSInteger  type;
 @property (nonatomic,strong) AFHTTPSessionManager * manager;
 @property (nonatomic,strong) UITableView * tableView;
+@property (nonatomic,strong) NSURLSessionTask * task;
 @end

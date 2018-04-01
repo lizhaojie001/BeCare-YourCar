@@ -6,5 +6,6 @@
 @property RLMArray<Article_hitlist*><Article_hitlist> * hitlist;
 @property NSString *  searchWord;
 @property ZJFacets * facets;
+ 
 @end
 RLM_ARRAY_TYPE(ArticleSearch)

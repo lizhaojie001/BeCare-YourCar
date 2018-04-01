@@ -27,13 +27,13 @@
 {
     if (self.childViewControllers.count) { 
         viewController.hidesBottomBarWhenPushed = YES;
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn setImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]forState:UIControlStateNormal];
-        [btn sizeToFit];
-        [btn addTarget:self action:@selector(popToPre) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *left = [[UIBarButtonItem  alloc]initWithCustomView:btn];
-        left.width = 60.0;
-         viewController.navigationItem.leftBarButtonItem = left;
+
+
+        UIBarButtonItem * item = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"back"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:(UIBarButtonItemStylePlain) target:self action:@selector(popToPre)];
+
+
+         viewController.navigationItem.leftBarButtonItem = item;
+         viewController.navigationItem.leftBarButtonItem.width = 35;
         viewController.hidesBottomBarWhenPushed = YES;
            }
     [super pushViewController:viewController animated:animated];

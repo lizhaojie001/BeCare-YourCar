@@ -3,11 +3,12 @@
 #import "ArticleCell.h"
 #import "CarViewController.h"
 @interface ArticleTypeOneViewController ()
-@property RLMResults   * data;
 
 @property (nonatomic,strong)UITableView * headTableView;
 
-@property (nonatomic,copy) NSMutableArray <NSString *  > * titleArr;
+@property  RLMResults <Article_hitlist *>  * hitlist;
+@property      ZJArtilteSort *  sort;
+@property ArticleSearch * searchResults;
 
 @property (nonatomic,assign) BOOL isOpen;
 
@@ -17,35 +18,25 @@
 
 @implementation ArticleTypeOneViewController
 static CGFloat Hight = 40.f;
-
+static    NSString  * const  key = @"searchWord";
 -(BOOL)isOpen{
 
     return self.headTableView.mj_h != Hight;
 }
 
--(NSMutableArray<NSString *> *)titleArr{
-
-    if (!_titleArr) {
-        _titleArr = [NSMutableArray arrayWithObject:@"全部"];
-        for (int i =0 ; i<4 ; i++) {
-            [_titleArr addObject:@"新闻中心"];
-        }
-
-    }
-    return _titleArr;
-
-}
 -(UITableView *)headTableView{
 
     if (!_headTableView) {
         _headTableView  =  [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _headTableView.backgroundColor = self.tableView.backgroundColor;
         _headTableView.rowHeight = Hight;
         _headTableView.dataSource= self;
         _headTableView.delegate = self;
         _headTableView.scrollEnabled = NO;
         _headTableView.sectionFooterHeight = 0.5;
         _headTableView.sectionHeaderHeight = 0.0;
-        _headTableView.separatorStyle  = UITableViewCellSeparatorStyleNone;
+        _headTableView.separatorInset = UIEdgeInsetsMake(0, 10, 0, 10);
+        _headTableView.separatorStyle  = UITableViewCellSeparatorStyleSingleLine;
         [self.view addSubview:_headTableView];
         [_headTableView mas_makeConstraints:^(MASConstraintMaker *make) {
 
@@ -63,6 +54,9 @@ static CGFloat Hight = 40.f;
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //获取分类
+  
+
 
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
 
@@ -72,18 +66,25 @@ static CGFloat Hight = 40.f;
 
     }];
     self.headTableView.tableFooterView = [UIView new];
-    [self firstComein];
+
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ArticleCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ArticleCell class])];
     MJWeakSelf
  NSArray * images = @[  [UIImage imageNamed:@"car1"] ,[UIImage imageNamed:@"car2"],[UIImage imageNamed:@"car3"],[UIImage imageNamed:@"car4"],[UIImage imageNamed:@"car5"],[UIImage imageNamed:@"car6"]];
     MJRefreshAutoGifFooter * footer = [MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
-        [weakSelf pullUpRefresh];
+        [weakSelf pullUpRefreshWith:nil andOffset:40];
     }];
     [footer setImages:images  forState:MJRefreshStateRefreshing];
     [footer setImages:images forState:MJRefreshStateIdle];
     self.tableView.mj_footer = footer;
 
-
+//添加下拉刷新
+    MJRefreshGifHeader * header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
+        [weakSelf firstComeinWith:nil];
+    }];
+    [header setImages:images forState:MJRefreshStateRefreshing];
+    [header setImages:images forState:MJRefreshStateIdle];
+    self.tableView.mj_header = header;
+    [header beginRefreshing];
     //添加监控
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchVC) name:zNSNotificationSwithView object:nil];
@@ -105,13 +106,14 @@ static CGFloat Hight = 40.f;
 }
 
 
--(void)pullUpRefresh{
+-(void)pullUpRefreshWith:(NSString *)class andOffset:(NSInteger )offset{
     MJWeakSelf
     NSString * baseURL = @"https://sou2.api.autohome.com.cn/wrap/v3/article/search";
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
-    NSInteger  offset = self.data.count;
+    class = self.sort.type;
+    offset = self.hitlist.count;
     [params setValue:@"app" forKey:@"_appid"];
-    [params setValue:@(1) forKey:@"class"];
+    [params setValue:class forKey:@"class"];
     [params setValue:@0 forKey:@"modify"];
     [params setValue:@(offset) forKey:@"offset"];
     [params setValue:self.title forKey:@"q"];
@@ -126,31 +128,45 @@ static CGFloat Hight = 40.f;
                 NSDictionary * hitlist = [response valueForKey:@"result"]  ;
                 RLMRealm * realm =[RLMRealm defaultRealm];
                 NSError * error;
-                NSInteger count =[[hitlist valueForKey:@"hitlist"]  count];
-                if (  count < 40) {
+                NSDictionary * dic = [NSMutableDictionary dictionary];
+                [dic setValuesForKeysWithDictionary:hitlist];
+
+                [dic setValue:self.title forKey:key];
+
+
+                [realm transactionWithBlock:^{
+                    [ArticleSearch createOrUpdateInRealm:realm withValue:dic];
+                } error:&error];
+
+                if (error) {
+                    NSLog(@"更新失败%@",error);
+                }
+
+                ArticleSearch * article =[ArticleSearch objectForPrimaryKey:weakSelf.title ];
+                weakSelf.hitlist = [article.hitlist objectsWhere:@"data.class_name = %@",weakSelf.sort.name];
+
+                if (  weakSelf.hitlist.count == weakSelf.sort.num) {
+                    [self.tableView reloadData];
                     [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
                     return ;
                 }
-                BOOL is =    [realm transactionWithBlock:^{
-                    [ArticleSearch  createOrUpdateInRealm:realm withValue:hitlist];
-                } error:&error];
-                if (is) {
-                    self.data = [Article_hitlist_data objectsWhere:@" class_name == %@",@"新闻中心"];
-                    [self.tableView.mj_footer endRefreshing];
-                    [self.tableView reloadData];
-                    NSLog(@"存入成功");
-                }
+                [self.tableView reloadData];
+                [self.tableView.mj_footer endRefreshing];
+
+
             }
         }
     } failureComplete:^(id error) {
  [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
     } isShowHUD:YES];
 }
--(void)firstComein{
+-(void)firstComeinWith:(NSString *)class{
+    MJWeakSelf
+    class = self.sort.type;
     NSString * baseURL = @"https://sou2.api.autohome.com.cn/wrap/v3/article/search";
     NSMutableDictionary * params = [NSMutableDictionary dictionary];
     [params setValue:@"app" forKey:@"_appid"];
-    [params setValue:@"" forKey:@"class"];
+    [params setValue:class forKey:@"class"];
     [params setValue:@0 forKey:@"modify"];
     [params setValue:@0 forKey:@"offset"];
     [params setValue:self.title forKey:@"q"];
@@ -168,14 +184,27 @@ static CGFloat Hight = 40.f;
                 if (![[hitlist valueForKey:@"hitlist"]  count]) {
                     return ;
                 }
-                BOOL is =    [realm transactionWithBlock:^{
-                    [ArticleSearch  createOrUpdateInRealm:realm withValue:hitlist];
+                NSDictionary * dic = [NSMutableDictionary dictionary];
+                [dic setValuesForKeysWithDictionary:hitlist];
+
+                [dic setValue:self.title forKey:key];
+
+
+                [realm transactionWithBlock:^{
+                    [ArticleSearch createOrUpdateInRealm:realm withValue:dic];
                 } error:&error];
-                if (is) {
-                    self.data = [Article_hitlist_data objectsWhere:@" class_name == %@",@"新闻中心"];
-                    [self.tableView reloadData];
-                    NSLog(@"存入成功");
+
+   ArticleSearch * Article =[ArticleSearch objectForPrimaryKey:weakSelf.title ];
+                weakSelf.sort = Article.facets.sortlist.firstObject;
+   weakSelf.hitlist = [Article.hitlist objectsWhere:@"data.class_name = %@",weakSelf.sort.name];
+
+                if ([weakSelf.tableView.mj_header isRefreshing]) {
+                    [weakSelf.tableView.mj_header endRefreshing];
                 }
+                [weakSelf.tableView reloadData];
+
+
+
             }
         }
     } failureComplete:^(id error) {
@@ -183,12 +212,12 @@ static CGFloat Hight = 40.f;
 }
 #pragma mark- delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    self.tableView.mj_footer.hidden = self.data.count == 0;
-
+//    self.tableView.mj_footer.hidden = self.data.count == 0;
+    self.tableView.mj_footer.hidden = self.hitlist.count ==0;
     if ([tableView isEqual:self.headTableView]) {
-        return self.titleArr.count;
+        return self.searchResults.facets.sortlist.count;
     }
-  return   self.data.count;
+  return   self.hitlist.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
    
@@ -198,8 +227,8 @@ static CGFloat Hight = 40.f;
 
     if ([tableView isEqual:self.headTableView]) {
         UITableViewCell * cell  = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"headCell"];
-
-        cell.textLabel.text = [self.titleArr objectAtIndex:indexPath.section];
+        ZJArtilteSort * sort = [self.searchResults.facets.sortlist objectAtIndex:indexPath.section];
+        cell.textLabel.text =sort.name;
         cell.textLabel.textColor =ZJThemeColor;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.font = [UIFont fontWithName:@"苹方-简 极细体" size:13.0f];
@@ -215,7 +244,7 @@ static CGFloat Hight = 40.f;
     }
 
     ArticleCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ArticleCell class]) forIndexPath:indexPath];
-    cell.data = [self.data objectAtIndex:indexPath.section];
+    cell.data = [[self.hitlist objectAtIndex:indexPath.section] data];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -232,27 +261,41 @@ static CGFloat Hight = 40.f;
 
       [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:(UITableViewScrollPositionTop)];
 
+//刷新列表
+        //被选中的分类
+            self.sort = [self.searchResults.facets.sortlist objectAtIndex:indexPath.section] ;
+            [self.tableView.mj_header beginRefreshing];
             return;
         }
  //重新约束header
-        if (self.titleArr.count>1) {
+        if (self.searchResults.facets.sortlist.count>1) {
             [tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.height.equalTo(@([tableView rowHeight]*self.titleArr.count));
+                make.height.equalTo(@([tableView rowHeight]*self.searchResults.facets.sortlist.count));
             }];
       
                 [tableView layoutIfNeeded];
             tableView.scrollEnabled = YES;
                 NSIndexPath * index = [NSIndexPath indexPathForRow:0 inSection:0];
-                [tableView selectRowAtIndexPath:index animated:NO scrollPosition:(UITableViewScrollPositionTop)];
-
+//                [tableView selectRowAtIndexPath:index animated:NO scrollPosition:(UITableViewScrollPositionTop)];
+            [tableView scrollToRowAtIndexPath:index atScrollPosition:UITableViewScrollPositionTop animated:YES];
             //[tableView reloadData];
         }
 
+        UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+        NSString * class ;
+        if ([cell.textLabel.text isEqualToString:@"全部"]) {
+            class= @"";
+        }else{
+            class = cell.textLabel.text;
+        }
+
+      //  [self pullUpRefreshWith:nil andOffset:0];
+//发送请求,刷新界面
 
         return;
     }
 
-    Article_hitlist_data * data = [self.data objectAtIndex:indexPath.section];
+    Article_hitlist_data * data = [[self.searchResults.hitlist objectAtIndex:indexPath.section] data];
     CarViewController * vc = [[CarViewController alloc]initWithNibName:nil bundle:nil];
     vc.wbnet = data.url;
     vc.title = data.title;
@@ -280,5 +323,26 @@ static CGFloat Hight = 40.f;
 
     return 0.5;
 }
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    if ([scrollView isEqual:self.headTableView]) {
+        return;
+    }
+    [self closeHead];
+}
 
+
+-(void)closeHead{
+    if(self.isOpen){
+
+        self.headTableView.scrollEnabled = NO;
+        [self.headTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@([self.headTableView rowHeight]));
+        }];
+
+        [self.headTableView layoutIfNeeded];
+        NSIndexPath * indexPath = [self.headTableView  indexPathForSelectedRow];
+
+        [self.headTableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:(UITableViewScrollPositionTop)];
+    }
+}
 @end

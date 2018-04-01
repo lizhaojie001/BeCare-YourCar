@@ -78,31 +78,34 @@
 -(UIView *)fatherView{
     if (!_fatherView) {
         _fatherView = [[UIView alloc]init];
+        MJWeakSelf
         [self.view addSubview:_fatherView];
         CGFloat  s = 1.0*9/16*ZJScreenW;
         [_fatherView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@(ZJScreenW));
             make.height.equalTo(@(s));
-            make.right.equalTo(self.view);
-            make.top.equalTo(self.view);
+            make.right.equalTo(weakSelf.view);
+            make.top.equalTo(weakSelf.view);
         }];
     }
     return _fatherView;
 }
 - (ZFPlayerModel *)playerModel {
+    MJWeakSelf
     if (!_playerModel) {
         _playerModel                  = [[ZFPlayerModel alloc] init];
         _playerModel.title            = self.title;
         _playerModel.videoURL         = [NSURL URLWithString: [self.videoInfo valueForKey:@"playurl"]];
         _playerModel.placeholderImageURLString =[self.videoInfo valueForKey:@"img"];
-        _playerModel.fatherView       = self.fatherView;
+        _playerModel.fatherView       = weakSelf.fatherView;
     }
     return _playerModel;
 }
 - (ZFPlayerView *)playerView {
     if (!_playerView) {
+        MJWeakSelf
         _playerView = [[ZFPlayerView alloc] init];
-        [_playerView playerControlView:nil playerModel:self.playerModel];
+        [_playerView playerControlView:nil playerModel:weakSelf.playerModel];
         _playerView.delegate = self;
         _playerView.hasDownload    = YES;
         _playerView.hasPreviewView = YES;

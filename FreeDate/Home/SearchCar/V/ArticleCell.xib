@@ -32,7 +32,7 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVS-FF-QpN">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AVS-FF-QpN">
                         <rect key="frame" x="210.5" y="10" width="105.5" height="59.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="AVS-FF-QpN" secondAttribute="height" multiplier="16:9" id="sJ5-EZ-K1v"/>

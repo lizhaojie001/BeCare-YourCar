@@ -7,5 +7,6 @@
 @property NSInteger score;
 @property NSString * type;
 @property Article_light * light;
+ @property (readonly) RLMLinkingObjects *owners;
 @end
 RLM_ARRAY_TYPE(Article_hitlist)

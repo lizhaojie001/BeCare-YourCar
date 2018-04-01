@@ -98,11 +98,14 @@
 		52C06F3720463C580049BEC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52C06F3920463C580049BEC3 /* InfoPlist.strings */; };
 		52C06F3F20463F0F0049BEC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52C06F4120463F0F0049BEC3 /* Localizable.strings */; };
 		52CA04E0205AA3EE004813FB /* AFHTTPSessionManager+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CA04DF205AA3EE004813FB /* AFHTTPSessionManager+Method.m */; };
+		52CCD420206CD61F00D911C4 /* DigiCert Global Root CA.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52CCD41F206CD61F00D911C4 /* DigiCert Global Root CA.cer */; };
+		52CCD423206CDEA300D911C4 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CCD422206CDEA300D911C4 /* YYFPSLabel.m */; };
 		52CDFA84205582A300DDEB8D /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CDFA82205582A300DDEB8D /* NetworkTool.m */; };
-		7E67E755D964BAFDF5E11A8B /* libPods-FreeDate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58DFED0E053F6A94B9DDCB1F /* libPods-FreeDate.a */; };
+		BF91FA075CCA3FB44240E369 /* libPods-FreeDate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1336DB7A871D7D9D0E6D8EFC /* libPods-FreeDate.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1336DB7A871D7D9D0E6D8EFC /* libPods-FreeDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FreeDate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5207A5DE20510D340035476A /* LeftTabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftTabelView.h; sourceTree = "<group>"; };
 		5207A5DF20510D340035476A /* LeftTabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftTabelView.m; sourceTree = "<group>"; };
 		5207A5E420510DB10035476A /* nswySettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nswySettingController.m; sourceTree = "<group>"; };
@@ -279,9 +282,11 @@
 		52CA04CF205A524F004813FB /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		52CA04DE205AA3EE004813FB /* AFHTTPSessionManager+Method.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+Method.h"; sourceTree = "<group>"; };
 		52CA04DF205AA3EE004813FB /* AFHTTPSessionManager+Method.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+Method.m"; sourceTree = "<group>"; };
+		52CCD41F206CD61F00D911C4 /* DigiCert Global Root CA.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DigiCert Global Root CA.cer"; sourceTree = "<group>"; };
+		52CCD421206CDEA200D911C4 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
+		52CCD422206CDEA300D911C4 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		52CDFA82205582A300DDEB8D /* NetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
 		52CDFA83205582A300DDEB8D /* NetworkTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkTool.h; sourceTree = "<group>"; };
-		58DFED0E053F6A94B9DDCB1F /* libPods-FreeDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FreeDate.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		59CA50CF19D88E9685DDC14F /* Pods-FreeDate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeDate.release.xcconfig"; path = "Pods/Target Support Files/Pods-FreeDate/Pods-FreeDate.release.xcconfig"; sourceTree = "<group>"; };
 		D4A2293D5386CDCC6B9747F0 /* Pods-FreeDate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FreeDate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FreeDate/Pods-FreeDate.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -291,7 +296,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E67E755D964BAFDF5E11A8B /* libPods-FreeDate.a in Frameworks */,
+				BF91FA075CCA3FB44240E369 /* libPods-FreeDate.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +539,8 @@
 		528816B4204E9DA500435F5A /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				52CCD421206CDEA200D911C4 /* YYFPSLabel.h */,
+				52CCD422206CDEA300D911C4 /* YYFPSLabel.m */,
 				524A6BE220612B70001DFF51 /* ZBCustomTransitions */,
 				52CA04DD205AA3CB004813FB /* Categroy */,
 				526762722057A53C00CACF2F /* Foundation+Log.m */,
@@ -570,6 +577,7 @@
 		5294A000204058F800CD58E1 /* FreeDate */ = {
 			isa = PBXGroup;
 			children = (
+				52CCD41F206CD61F00D911C4 /* DigiCert Global Root CA.cer */,
 				5294A13F2040BB8200CD58E1 /* FreeDate.entitlements */,
 				52575C36205BB4A1004F4317 /* Symantec Class 3 Secure Server CA - G4.cer */,
 				524A391D2059001100C67B07 /* www.baishancloud.com.cer */,
@@ -758,7 +766,7 @@
 			children = (
 				5249AF50205F9F050041DE79 /* UMMobClick.framework */,
 				5249AF4E205F9D260041DE79 /* CoreTelephony.framework */,
-				58DFED0E053F6A94B9DDCB1F /* libPods-FreeDate.a */,
+				1336DB7A871D7D9D0E6D8EFC /* libPods-FreeDate.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -850,6 +858,7 @@
 				526762712057A41B00CACF2F /* *.app.autohome.com.cn.cer in Resources */,
 				5294A1252040645400CD58E1 /* wt071.ttf in Resources */,
 				5249AF84205FAC840041DE79 /* ArticleCell.xib in Resources */,
+				52CCD420206CD61F00D911C4 /* DigiCert Global Root CA.cer in Resources */,
 				52575C35205BA30D004F4317 /* CarVideoCell.xib in Resources */,
 				524A391E2059001200C67B07 /* www.baishancloud.com.cer in Resources */,
 				5294A00E204058F800CD58E1 /* LaunchScreen.storyboard in Resources */,
@@ -900,9 +909,38 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FreeDate/Pods-FreeDate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AVOSCloud/AVOSCloud.framework",
+				"${BUILT_PRODUCTS_DIR}/LeanCloudSocial/LeanCloudSocial.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/PYSearch/PYSearch.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ZFPlayer/ZFPlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AVOSCloud.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LeanCloudSocial.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYSearch.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZFPlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1004,6 +1042,7 @@
 				524A6BE820612B70001DFF51 /* UIViewController+Animator.m in Sources */,
 				5294A1122040618F00CD58E1 /* PellTableViewSelect.m in Sources */,
 				52B311E5204C194300D8A440 /* MBProgressHUD.m in Sources */,
+				52CCD423206CDEA300D911C4 /* YYFPSLabel.m in Sources */,
 				5288187B204EA66E00435F5A /* M13ProgressView.m in Sources */,
 				52575C31205BA30D004F4317 /* nswyMVViewController.m in Sources */,
 				5249AF7A205FAC410041DE79 /* ArticleViewController.m in Sources */,

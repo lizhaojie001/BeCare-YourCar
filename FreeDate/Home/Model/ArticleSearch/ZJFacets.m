@@ -23,7 +23,7 @@
 //{
 //    return @[];
 //}
-+(NSString *)primaryKey{
-    return @"name";
-}
+//+(NSString *)primaryKey{
+//    return @"name";
+//}
 @end

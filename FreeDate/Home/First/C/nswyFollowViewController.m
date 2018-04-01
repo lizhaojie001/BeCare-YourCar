@@ -18,6 +18,7 @@
 #import "nswyMVViewController.h"
 #import "TransitionObject.h"
 #import "ZBFallenBricksAnimator.h"
+#import "YYFPSLabel.h"
 #define video(a,b) [NSString stringWithFormat:@"https://61.240.128.76/news_v8.8.5/news/editvideos-pm1-sid%d-lid0-s%d-crv0.json",a,b]
 @interface nswyFollowViewController ()<PYSearchViewControllerDelegate,UISearchBarDelegate,UINavigationControllerDelegate>
 @property (nonatomic,strong) UISearchBar * serachBar;
@@ -32,6 +33,7 @@
 @property(nonatomic,strong)AFHTTPSessionManager * manager;
 @property(nonatomic,strong)AFHTTPSessionManager * KeywordManager;
 @property (nonatomic,strong) NSArray * keyArr;
+@property (nonatomic,strong) YYFPSLabel * fpsLabel;
 @end
 @implementation nswyFollowViewController
 #pragma mark- lazy
@@ -41,6 +43,7 @@
         defaultSessionConfiguration.timeoutIntervalForRequest = 5.0;
         _KeywordManager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:defaultSessionConfiguration];
          _KeywordManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
+
         _KeywordManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
         _KeywordManager.securityPolicy.allowInvalidCertificates = YES;
         _KeywordManager.securityPolicy.validatesDomainName = NO;
@@ -67,6 +70,7 @@
         _videoManager = [[AFHTTPSessionManager alloc]initWithSessionConfiguration:defaultSessionConfiguration];
         _videoManager.requestSerializer = [AFHTTPRequestSerializer serializer];
         [_videoManager.requestSerializer setValue:@"news.app.autohome.com.cn" forHTTPHeaderField:@"Host"];
+//        [_videoManager.requestSerializer setValue:@"Paw/2.3.1 (Macintosh; OS X/10.13.3) GCDHTTPRequest" forHTTPHeaderField:@"User-Agent"];
         _videoManager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
         _videoManager.securityPolicy.allowInvalidCertificates = YES;
         _videoManager.securityPolicy.validatesDomainName = NO;
@@ -138,7 +142,7 @@
     int a,b;
     NSString * string =[NSString stringWithFormat:@"https://61.240.128.76/news_v8.8.5/news/editvideos-pm1-sid%d-lid0-s%d-crv0.json",a,b];
     NSString * url = @"https://61.240.128.76/news_v8.8.5/news/editvideos-pm1-sid0-lid0-s50-crv0.json";
-    [self.videoManager zj_GET:video(0, 50) withParams:nil successComplete:^(id responseObject) {
+    [self.videoManager zj_GET:url withParams:nil successComplete:^(id responseObject) {
         if(responseObject != nil&&[responseObject isKindOfClass:[NSDictionary class]]){
             NSDictionary * dic = (NSDictionary *)responseObject;
             NSDictionary *info = [dic valueForKey:@"result"];
@@ -234,6 +238,16 @@ static NSString * followCell = @"followCell";
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    _fpsLabel = [[YYFPSLabel alloc]initWithFrame:CGRectMake(0, 100, 100, 50)];
+
+    [_fpsLabel sizeToFit];
+    // _fpsLabel.alpha = 0;
+    _fpsLabel.textColor = [UIColor grayColor];
+    _fpsLabel.backgroundColor = [UIColor redColor];
+     [[UIApplication sharedApplication].keyWindow addSubview:_fpsLabel];
+  [[UIApplication sharedApplication].keyWindow bringSubviewToFront:_fpsLabel];
+
 
     self.tableView.translatesAutoresizingMaskIntoConstraints = NO; ;
     self.navigationController.delegate =self;

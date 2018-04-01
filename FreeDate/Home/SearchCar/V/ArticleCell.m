@@ -25,7 +25,7 @@
           url = [@"https:" stringByAppendingString:data.FirstCoverImg];
         }
     }else{
-        url = [@"https:" stringByAppendingString:data.AppImg];
+        url = [@"" stringByAppendingString:data.AppImg];
     }
     NSLog(@" %@ 图片的URL: %@",data.title,url);
     [self.AppImg sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"carPlaceholder"] options:(SDWebImageProgressiveDownload)];

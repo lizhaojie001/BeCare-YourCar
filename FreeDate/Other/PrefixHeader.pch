@@ -32,7 +32,7 @@
 #import <UIButton+WebCache.h>
 #import <Realm.h>
 #import <ZFPlayer.h>
-
+#import <ReactiveObjC.h>
 #import <PYSearch.h>
 
 #import "NetworkTool.h"

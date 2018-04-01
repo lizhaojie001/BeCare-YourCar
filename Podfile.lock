@@ -24,6 +24,7 @@ PODS:
   - MJExtension (3.0.13)
   - MJRefresh (3.1.15.3)
   - PYSearch (0.8.8)
+  - ReactiveObjC (3.1.0)
   - Realm (3.0.2):
     - Realm/Headers (= 3.0.2)
   - Realm/Headers (3.0.2)
@@ -48,6 +49,9 @@ PODS:
   - UMCShare/UI (6.8.2):
     - UMCCommon
     - UMCShare/Core
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
   - ZFPlayer (2.1.6):
     - Masonry
 
@@ -59,6 +63,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - PYSearch
+  - ReactiveObjC
   - Realm (~> 3.0.2)
   - SDWebImage
   - SVProgressHUD
@@ -67,6 +72,7 @@ DEPENDENCIES:
   - UMCShare/Social/ReducedSina
   - UMCShare/Social/ReducedWeChat
   - UMCShare/UI
+  - YYKit
   - ZFPlayer
 
 SPEC CHECKSUMS:
@@ -79,14 +85,16 @@ SPEC CHECKSUMS:
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   PYSearch: aa3704f283c67667808de6df514c24df03f5f116
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
   Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UMCAnalytics: 44e0bb2f442b7aaf97d1c924b58798b612f2c13d
   UMCCommon: 19f09b4c67b6007837f70f321fe091e5814d49b1
   UMCShare: ab74e3c818cd305846609b15b0daf36872213c28
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZFPlayer: 833cb3974b619bfd01a0ec1ebaabfe6f629e85b4
 
-PODFILE CHECKSUM: c1913c1074e5172132f99f55e84c7585b1ea6fe8
+PODFILE CHECKSUM: e439fbd7a36bc186f883bce4e6b967100367b85d
 
 COCOAPODS: 1.4.0
