@@ -8,6 +8,7 @@
 @implementation ArticleTypeFourViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    return;
     [self firstComein];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ArticleCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ArticleCell class])];
     MJWeakSelf

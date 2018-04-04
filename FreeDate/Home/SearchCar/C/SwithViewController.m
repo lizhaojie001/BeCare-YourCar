@@ -19,7 +19,7 @@
     [self setTitleView];
 }
 - (void)setTitleView{
-    NSArray * titles = @[@"新闻中心",@"试驾测评",@"汽车文化",@"用车养车"];
+    NSArray * titles = @[@"文章",@"试驾测评",@"汽车文化",@"用车养车"];
     CGFloat SW =self.view.bounds.size.width;
     UIView * v = [[UIView alloc]initWithFrame:CGRectMake(0, 64, SW, 44)];
     v.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.8];

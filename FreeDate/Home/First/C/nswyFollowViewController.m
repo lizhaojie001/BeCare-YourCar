@@ -139,8 +139,7 @@
 -(void)firstComein{
     [SVProgressHUD show];
     MJWeakSelf
-    int a,b;
-    NSString * string =[NSString stringWithFormat:@"https://61.240.128.76/news_v8.8.5/news/editvideos-pm1-sid%d-lid0-s%d-crv0.json",a,b];
+
     NSString * url = @"https://61.240.128.76/news_v8.8.5/news/editvideos-pm1-sid0-lid0-s50-crv0.json";
     [self.videoManager zj_GET:url withParams:nil successComplete:^(id responseObject) {
         if(responseObject != nil&&[responseObject isKindOfClass:[NSDictionary class]]){
@@ -236,8 +235,43 @@ static NSString * followCell = @"followCell";
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar{
     return NO;
 }
+-(void)test{
+    
+
+}
+-(void)test1{
+
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager.requestSerializer setValue:@"cont.app.autohome.com.cn" forHTTPHeaderField:@"Host"];
+manager.requestSerializer= [AFHTTPRequestSerializer serializer];
+
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@".*html.*", nil];
+//    manager.securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];
+//    manager.securityPolicy.allowInvalidCertificates = YES;
+//    manager.securityPolicy.validatesDomainName = NO;
+    [manager zj_GET:@"http://61.240.128.76/cont_v8.8.5/content/news/newscontent-pm1-n898899-t0-rct1-ish1-ver.json" withParams:nil successComplete:^(id response) {
+        NSLog(@"返回的response : %@",response);
+    } failureComplete:^(NSError * error ) {
+        NSLog(@" backerror : %@",error.description);
+
+    } isShowHUD:YES];
+
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+
+
+
+
+
+
+
+
+
+
 
     _fpsLabel = [[YYFPSLabel alloc]initWithFrame:CGRectMake(0, 100, 100, 50)];
 
@@ -407,6 +441,8 @@ static NSString * followCell = @"followCell";
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"%@",indexPath);
+
+   
     if ([tableView isEqual:self.leftTableView]  ) {
         switch (indexPath.row) {
             case 0:
@@ -423,38 +459,10 @@ static NSString * followCell = @"followCell";
         return;
     }
     CarVideo * car = [self.results objectAtIndex:indexPath.row];
-    NSMutableDictionary * doc = [NSMutableDictionary dictionary];
-    [doc setValue:@1 forKey:@"pm"];
-    [doc setValue:@"wifi" forKey:@"network"];
-    [doc setValue:car.videoid forKey:@"mids"];
-    [doc setValue:@1 forKey:@"mt"];
-    [doc setValue:@"mp4" forKey:@"ft"];
-    [doc setValue:@(ZJScreenW) forKey:@"dw"];
-    [doc setValue:@(ZJScreenH) forKey:@"dh"];
-    [doc setValue:@"iPhone 11.3 autohome 8.9.0 iPhone" forKey:@"ua"];
-    [doc setValue:@(YES) forKey:@"getall"];
-    [SVProgressHUD show];
-    NSString *url =@"https://223.99.255.22/news_v8.8.5/newspf/npgetvideoaudiosource.ashx";
-    [self.videoManager zj_GET:url withParams:doc successComplete:^(id response) {
-        NSLog(@"%@",response);
-        [SVProgressHUD dismiss];
-        if (response !=nil &&[response isKindOfClass:[NSDictionary class]]) {
-            NSDictionary * info = [[response valueForKey:@"result"] firstObject];
-            if ([[response valueForKey:@"returncode"]intValue] == 0) {
-                NSDictionary  * dic     = [[info valueForKey:@"copieslist"] firstObject];
-                NSString *url = [dic valueForKey:@"playurl"];
-                NSString *image = [info valueForKey:@"img"];
-                    nswyMVViewController * mv =[[nswyMVViewController alloc]init];
-                mv.videoInfo = @{@"playurl": url,@"img":image};
-                mv.title = car.title;
-                mv.car = car;
-                    [self.navigationController pushViewController:mv animated:YES];
-                }else{
-                }
-        }
-    } failureComplete:^(id error) {
-   [SVProgressHUD showErrorWithStatus:@"暂无视频地址"];
-    } isShowHUD:NO];
+     nswyMVViewController * mv =[[nswyMVViewController alloc]init];
+    mv.car = car;
+    [self.navigationController pushViewController:mv animated:YES];
+
 }
 #pragma mark - Private Method
 - (void)registerEffectForView:(UIView *)aView depth:(CGFloat)depth;

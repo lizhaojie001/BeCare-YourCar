@@ -15,6 +15,7 @@
 @property (nonatomic,strong) UIActivityIndicatorView  * indicatorView;
 @property (nonatomic,strong) UIView * noComments;
 @property (nonatomic,strong) NSURLSessionTask * commentTask;
+@property (nonatomic,strong) NSURLSessionTask * playerTask;
 @end
 @implementation nswyMVViewController
 #pragma mark-Getter
@@ -24,14 +25,15 @@
         _commmentsView.contentInset = UIEdgeInsetsMake(-30, 0, 0, 0 );
         _commmentsView.tableFooterView = [UIView new];
         _commmentsView.showsVerticalScrollIndicator =NO;
-//        _commmentsView.estimatedRowHeight = 200.0;
-          _commmentsView.rowHeight = UITableViewAutomaticDimension;
+        //        _commmentsView.estimatedRowHeight = 200.0;
+        _commmentsView.rowHeight = UITableViewAutomaticDimension;
         _commmentsView.dataSource = self;
         _commmentsView.delegate = self;
+        //        _commmentsView.backgroundColor = [UIColor redColor];
         [self.view addSubview:_commmentsView];
         [_commmentsView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.view).mas_offset(-20);
-            make.top.equalTo(self.playerView.mas_bottom).mas_offset(10);
+            make.top.equalTo(self.fatherView.mas_bottom).mas_offset(10);
             make.left.equalTo(self.view).mas_offset(20);
             make.bottom.equalTo(self.view).mas_offset(-5);
         }];
@@ -43,7 +45,7 @@
             make.width.equalTo(_commmentsView);
             make.center.equalTo(_commmentsView);
         }];
-      UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+        UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectZero];
         imageView.image = [UIImage imageNamed:@"noComments"];
         [self.noComments addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,8 +97,8 @@
     if (!_playerModel) {
         _playerModel                  = [[ZFPlayerModel alloc] init];
         _playerModel.title            = self.title;
-        _playerModel.videoURL         = [NSURL URLWithString: [self.videoInfo valueForKey:@"playurl"]];
-        _playerModel.placeholderImageURLString =[self.videoInfo valueForKey:@"img"];
+        //        _playerModel.videoURL         = [NSURL URLWithString: [self.videoInfo valueForKey:@"playurl"]];
+        //        _playerModel.placeholderImageURLString =[self.videoInfo valueForKey:@"img"];
         _playerModel.fatherView       = weakSelf.fatherView;
     }
     return _playerModel;
@@ -105,7 +107,7 @@
     if (!_playerView) {
         MJWeakSelf
         _playerView = [[ZFPlayerView alloc] init];
-        [_playerView playerControlView:nil playerModel:weakSelf.playerModel];
+        //        [_playerView playerControlView:nil playerModel:weakSelf.playerModel];
         _playerView.delegate = self;
         _playerView.hasDownload    = YES;
         _playerView.hasPreviewView = YES;
@@ -141,14 +143,17 @@
         self.isPlaying = YES;
         self.playerView.playerPushedOrPresented = YES;
     }else{
+
         [self.playerView pause];
+
     }
-   [self.navigationController setNavigationBarHidden:NO];
+    [self.playerTask cancel];
+    [self.navigationController setNavigationBarHidden:NO];
 
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
- 
+
     [self.commentTask cancel];
     [self.playerView removeFromSuperview];
     [self.fatherView removeFromSuperview];
@@ -160,13 +165,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.title = self.car.title;
     self.view.backgroundColor =self.commmentsView.backgroundColor;
-  [self.playerView autoPlayTheVideo];
     [self setcommentsVIew];
+    [self firstComein];
+    [self getMVplayURL];
 }
 -(void)setcommentsVIew{
-    [self firstComein];
-  NSArray * images = @[  [UIImage imageNamed:@"car1"] ,[UIImage imageNamed:@"car2"],[UIImage imageNamed:@"car3"],[UIImage imageNamed:@"car4"],[UIImage imageNamed:@"car5"],[UIImage imageNamed:@"car6"]];
+
+    NSArray * images = @[  [UIImage imageNamed:@"car1"] ,[UIImage imageNamed:@"car2"],[UIImage imageNamed:@"car3"],[UIImage imageNamed:@"car4"],[UIImage imageNamed:@"car5"],[UIImage imageNamed:@"car6"]];
     MJWeakSelf
     MJRefreshAutoGifFooter * footer = [MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
         [weakSelf pullUpRefresh];
@@ -175,12 +183,58 @@
     [footer setImages:images forState:MJRefreshStateIdle];
     self.commmentsView.mj_footer = footer;
 }
+
+
+-(void)getMVplayURL{
+    MJWeakSelf
+    NSMutableDictionary * doc = [NSMutableDictionary dictionary];
+    [doc setValue:@1 forKey:@"pm"];
+    [doc setValue:@"wifi" forKey:@"network"];
+    [doc setValue:self.car.videoid forKey:@"mids"];
+    [doc setValue:@1 forKey:@"mt"];
+    [doc setValue:@"mp4" forKey:@"ft"];
+    [doc setValue:@(ZJScreenW) forKey:@"dw"];
+    [doc setValue:@(ZJScreenH) forKey:@"dh"];
+    [doc setValue:@"iPhone 11.3 autohome 8.9.0 iPhone" forKey:@"ua"];
+    [doc setValue:@(YES) forKey:@"getall"];
+    //    [SVProgressHUD show];
+    NSString *url =@"https://223.99.255.22/news_v8.8.5/newspf/npgetvideoaudiosource.ashx";
+    self.playerTask =    [self.videoManager zj_GET:url withParams:doc successComplete:^(id response) {
+        NSLog(@"%@",response);
+        //        [SVProgressHUD dismiss];
+        if (response !=nil &&[response isKindOfClass:[NSDictionary class]]) {
+            NSDictionary * info = [[response valueForKey:@"result"] firstObject];
+            if ([[response valueForKey:@"returncode"]intValue] == 0) {
+                NSDictionary  * dic     = [[info valueForKey:@"copieslist"] firstObject];
+                NSString *url = [dic valueForKey:@"playurl"];
+                NSString *image = [info valueForKey:@"img"];
+                NSAssert(url.length, @"播放视频的URL为空 url ==%@",url);
+                NSAssert1(image.length, @" iamge = %@", image);
+                NSDictionary * abc = @{@"playurl": url,@"img":image};
+                //                weakSelf.videoInfo = dic;
+                
+                [weakSelf.videoInfo setValuesForKeysWithDictionary:abc] ;
+                weakSelf.playerModel.videoURL = [NSURL URLWithString:url];
+                weakSelf.playerModel.placeholderImageURLString = image;
+                [weakSelf.playerView playerControlView:nil playerModel:weakSelf.playerModel];
+                [self.playerView autoPlayTheVideo];
+                //                [weakSelf.playerView resetToPlayNewVideo:weakSelf.playerModel];
+
+            }else{
+            }
+        }
+    } failureComplete:^(id error) {
+        //        [SVProgressHUD showErrorWithStatus:@"暂无视频地址"];
+    } isShowHUD:YES];
+}
+
 #pragma mark- 数据源
 -(void)firstComein{
     MJWeakSelf
+
     [self.indicatorView startAnimating];
     NSLog(@"%@",commentsAPI(self.car.id, 40, 0));
-  self.commentTask =   [self.videoManager zj_GET:commentsAPI(self.car.id, 40,0) withParams:nil successComplete:^(id response) {
+    self.commentTask =   [self.videoManager zj_GET:commentsAPI(self.car.id, 40,0) withParams:nil successComplete:^(id response) {
         [weakSelf.indicatorView stopAnimating];
         if (response != nil&&[response isKindOfClass:[NSDictionary class]]) {
             if ([[[response valueForKey:@"result"] valueForKey:@"list"] count]) {
@@ -202,18 +256,18 @@
                     NSLog(@"打印该视频 评论 %ld --%%@",self.commentResults.count,comments);
                 }
             }else{
-                self.noComments.hidden =NO;
+                weakSelf.noComments.hidden =NO;
             }
         }
     } failureComplete:^(id error) {
         [weakSelf.indicatorView stopAnimating];
-        self.noComments.hidden =NO;
+        weakSelf.noComments.hidden =NO;
     } isShowHUD:YES];
 }
 -(void)pullUpRefresh{
     MJWeakSelf
     NSInteger  lastid = [self.commentResults.lastObject  id];
- self.commentTask =    [self.videoManager zj_GET:commentsAPI(self.car.id, 40, lastid) withParams:nil successComplete:^(id response) {
+    self.commentTask =    [self.videoManager zj_GET:commentsAPI(self.car.id, 40, lastid) withParams:nil successComplete:^(id response) {
         if (response != nil&&[response isKindOfClass:[NSDictionary class]]) {
             NSInteger count =         [[[response valueForKey:@"result"] valueForKey:@"list"] count];
             NSLog(@"加载更多的评论数- --- %ld",count);
@@ -235,19 +289,19 @@
                         [weakSelf.commmentsView.mj_footer endRefreshingWithNoMoreData];
                         weakSelf.commmentsView.mj_footer.hidden = YES;
                     }else{
-                           [weakSelf.commmentsView.mj_footer endRefreshing];
+                        [weakSelf.commmentsView.mj_footer endRefreshing];
                         weakSelf.commmentsView.mj_footer.hidden =NO;
                     }
                     NSLog(@"打印该视频 评论 %ld --%%@",self.commentResults.count,comments);
                 }
             }else{
                 [weakSelf.commmentsView.mj_footer endRefreshingWithNoMoreData];
-                  weakSelf.commmentsView.mj_footer.hidden = YES;
+                weakSelf.commmentsView.mj_footer.hidden = YES;
             }
         }
     } failureComplete:^(id error) {
-   [weakSelf.commmentsView.mj_footer endRefreshingWithNoMoreData];
-          weakSelf.commmentsView.mj_footer.hidden = YES;
+        [weakSelf.commmentsView.mj_footer endRefreshingWithNoMoreData];
+        weakSelf.commmentsView.mj_footer.hidden = YES;
     } isShowHUD:YES];
 }
 - (BOOL)shouldAutorotate {
@@ -263,7 +317,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView{
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-  [SVProgressHUD dismissWithDelay:0.5];
+    [SVProgressHUD dismissWithDelay:0.5];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     [SVProgressHUD dismissWithDelay:0.5];
@@ -280,7 +334,7 @@
         make.top.equalTo(self.fatherView.mas_bottom).mas_offset(10);
     }];
     [self.view layoutIfNeeded];
-ZJlogFunction
+    ZJlogFunction
 }
 - (void)zf_playerControlViewWillHidden:(UIView *)controlView isFullscreen:(BOOL)fullscreen{
     [self.commmentsView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -317,7 +371,7 @@ ZJlogFunction
     return 40.0f;
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    NSLog(@"%@",NSStringFromCGPoint(scrollView.contentOffset));
+    //    NSLog(@"%@",NSStringFromCGPoint(scrollView.contentOffset));
     if (scrollView.contentOffset.y == 0) {
         self.commmentsView.tableHeaderView.hidden = NO;
     }else{

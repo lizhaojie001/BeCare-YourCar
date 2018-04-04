@@ -11,6 +11,8 @@
         _tableView.dataSource = self;
         _tableView.sectionFooterHeight = 0.0f;
         _tableView.sectionHeaderHeight = 8.0f;
+        _tableView.rowHeight = UITableViewAutomaticDimension;
+
         [self.view addSubview:_tableView];
         [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.width.equalTo(@(ZJScreenW));
@@ -36,9 +38,9 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80.f;
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 80.f;
+//}
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return 0.0f;
 }

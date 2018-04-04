@@ -8,11 +8,28 @@
 +(NSString *)primaryKey{
     return @"id";
 }
-+ (NSDictionary *)linkingObjectsProperties
-{
-    return @{ @"owners": [RLMPropertyDescriptor descriptorWithClass:Article_hitlist.class propertyName:@"data"] };
+
++(NSArray<NSString *> *)ignoredProperties{
+    return @[@"type"];
 }
--(NSString *)AppImg{
-    return [NSString stringWithFormat:@"https:%@",_AppImg];
+//+ (NSDictionary *)linkingObjectsProperties
+//{
+//    return @{ @"owners": [RLMPropertyDescriptor descriptorWithClass:Article_hitlist.class propertyName:@"data"] };
+//}
+//-(NSString *)AppImg{
+//    return [NSString stringWithFormat:@"https:%@",_AppImg];
+//}
+
+-(UIImageViewNumType)type{
+
+    if ([self.AppImg isEqualToString:@"https:"]|| !self.AppImg.length) {
+        return UIImageViewNumNone;
+    }else if (self.FirstCoverImg.length){
+        return UIImageViewNumThree;
+    }else{
+        return UIImageViewNumOne;
+    }
+
 }
 @end
+

@@ -5,7 +5,7 @@
 @end
 @implementation NetworkTool
 single_implementation(NetworkTool);
--(AFHTTPSessionManager*)factoryMethodWithHeader:(NSDictionary *)header{
++(AFHTTPSessionManager*)factoryMethodWithHeader:(NSDictionary *)header{
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     for (NSString * key in header) {
         NSString * value = [header valueForKey:key];

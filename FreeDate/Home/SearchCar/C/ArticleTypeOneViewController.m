@@ -2,14 +2,18 @@
 #import "ArticleSearch.h"
 #import "ArticleCell.h"
 #import "CarViewController.h"
+#import "ZJArticleNoneCell.h"
+#import "ZJArticleThreeCell.h"
+#import "ZJArticleOneCell.h"
+#import "ZJArticleDetialViewController.h"
 @interface ArticleTypeOneViewController ()
 
 @property (nonatomic,strong)UITableView * headTableView;
 
-@property  RLMResults <Article_hitlist *>  * hitlist;
+@property  RLMResults <Article_hitlist *>   * hitlist;
 @property      ZJArtilteSort *  sort;
 @property ArticleSearch * searchResults;
-
+@property ZJFacets *facets;
 @property (nonatomic,assign) BOOL isOpen;
 
 //@property
@@ -59,15 +63,20 @@ static    NSString  * const  key = @"searchWord";
 
 
     [self.tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
-
         make.top.equalTo(self.headTableView.mas_top).mas_offset(Hight);
         make.bottom.left.right.equalTo(self.view);
 
-
     }];
-    self.headTableView.tableFooterView = [UIView new];
 
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ArticleCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ArticleCell class])];
+    
+    self.headTableView.tableFooterView = [UIView new];
+//注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZJArticleOneCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ZJArticleOneCell class])];
+
+ [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZJArticleNoneCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ZJArticleNoneCell class])];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ZJArticleThreeCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([ZJArticleThreeCell class])];
+
+
     MJWeakSelf
  NSArray * images = @[  [UIImage imageNamed:@"car1"] ,[UIImage imageNamed:@"car2"],[UIImage imageNamed:@"car3"],[UIImage imageNamed:@"car4"],[UIImage imageNamed:@"car5"],[UIImage imageNamed:@"car6"]];
     MJRefreshAutoGifFooter * footer = [MJRefreshAutoGifFooter footerWithRefreshingBlock:^{
@@ -132,20 +141,23 @@ static    NSString  * const  key = @"searchWord";
                 [dic setValuesForKeysWithDictionary:hitlist];
 
                 [dic setValue:self.title forKey:key];
-
-
-                [realm transactionWithBlock:^{
-                    [ArticleSearch createOrUpdateInRealm:realm withValue:dic];
-                } error:&error];
-
-                if (error) {
-                    NSLog(@"更新失败%@",error);
-                }
-
                 ArticleSearch * article =[ArticleSearch objectForPrimaryKey:weakSelf.title ];
-                weakSelf.hitlist = [article.hitlist objectsWhere:@"data.class_name = %@",weakSelf.sort.name];
+                ArticleSearch * art = [[ArticleSearch alloc]initWithValue:dic];
 
-                if (  weakSelf.hitlist.count == weakSelf.sort.num) {
+                RLMResults *result = [Article_hitlist allObjects];
+                for (Article_hitlist * list  in art.hitlist) {
+                NSUInteger index =   [result indexOfObjectWhere:@"id = %@",list.id];
+
+                    if (index == NSNotFound) {
+                            [realm beginWriteTransaction];
+                            [article.hitlist addObject:list];
+                            [realm commitWriteTransaction:&error];
+                    }
+                }
+                NSLog(@"键入失败 %@",error);
+                weakSelf.hitlist =  [[article.hitlist objectsWhere:@"data.class_name = %@",weakSelf.sort.name] sortedResultsUsingKeyPath:@"data.date" ascending:NO] ;
+
+                if (  weakSelf.hitlist.count== weakSelf.sort.num) {
                     [self.tableView reloadData];
                     [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
                     return ;
@@ -153,13 +165,18 @@ static    NSString  * const  key = @"searchWord";
                 [self.tableView reloadData];
                 [self.tableView.mj_footer endRefreshing];
 
+                }
+
+
 
             }
-        }
+
     } failureComplete:^(id error) {
  [weakSelf.tableView.mj_footer endRefreshingWithNoMoreData];
     } isShowHUD:YES];
 }
+
+
 -(void)firstComeinWith:(NSString *)class{
     MJWeakSelf
     class = self.sort.type;
@@ -181,26 +198,47 @@ static    NSString  * const  key = @"searchWord";
                 NSDictionary * hitlist = [response valueForKey:@"result"]  ;
                 RLMRealm * realm =[RLMRealm defaultRealm];
                 NSError * error;
-                if (![[hitlist valueForKey:@"hitlist"]  count]) {
+                RLMArray *hitlists = [hitlist valueForKey:@"hitlist"];
+                if (![hitlists count]) {
                     return ;
                 }
+
                 NSDictionary * dic = [NSMutableDictionary dictionary];
                 [dic setValuesForKeysWithDictionary:hitlist];
-
                 [dic setValue:self.title forKey:key];
+                ArticleSearch *a = [[ArticleSearch alloc]initWithValue:dic];
 
+                RLMResults * s = [Article_hitlist allObjects];
+                ArticleSearch * Article =[ArticleSearch objectForPrimaryKey:weakSelf.title ];
 
-                [realm transactionWithBlock:^{
-                    [ArticleSearch createOrUpdateInRealm:realm withValue:dic];
-                } error:&error];
+                if (!Article) { //第一次没有article
+                    [realm beginWriteTransaction];
+                    [realm addOrUpdateObject:a];
+                    [realm commitWriteTransaction];
+                    Article = a;
 
-   ArticleSearch * Article =[ArticleSearch objectForPrimaryKey:weakSelf.title ];
-                weakSelf.sort = Article.facets.sortlist.firstObject;
-   weakSelf.hitlist = [Article.hitlist objectsWhere:@"data.class_name = %@",weakSelf.sort.name];
+                }else{
+                    for (Article_hitlist * list  in a.hitlist) {
+                        NSInteger index = [s indexOfObjectWhere:@"id = %@",list.id];
+                        if (index ==NSNotFound) {
+                            [realm beginWriteTransaction];
+                            [Article.hitlist addObject:list];
+                            [realm commitWriteTransaction];
+                        }
+                    }
 
+                }
+
+                if (!weakSelf.sort) {
+                    weakSelf.sort = Article.facets.sortlist.firstObject;
+                }
+                weakSelf.hitlist = [[Article.hitlist objectsWhere:@"data.class_name = %@",weakSelf.sort.name] sortedResultsUsingKeyPath:@"data.date" ascending:NO];
+
+                weakSelf.facets = Article.facets;
                 if ([weakSelf.tableView.mj_header isRefreshing]) {
                     [weakSelf.tableView.mj_header endRefreshing];
                 }
+                [weakSelf.headTableView reloadData];
                 [weakSelf.tableView reloadData];
 
 
@@ -215,7 +253,7 @@ static    NSString  * const  key = @"searchWord";
 //    self.tableView.mj_footer.hidden = self.data.count == 0;
     self.tableView.mj_footer.hidden = self.hitlist.count ==0;
     if ([tableView isEqual:self.headTableView]) {
-        return self.searchResults.facets.sortlist.count;
+        return self.facets.sortlist.count;
     }
   return   self.hitlist.count;
 }
@@ -227,7 +265,7 @@ static    NSString  * const  key = @"searchWord";
 
     if ([tableView isEqual:self.headTableView]) {
         UITableViewCell * cell  = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"headCell"];
-        ZJArtilteSort * sort = [self.searchResults.facets.sortlist objectAtIndex:indexPath.section];
+        ZJArtilteSort * sort = [self.facets.sortlist objectAtIndex:indexPath.section];
         cell.textLabel.text =sort.name;
         cell.textLabel.textColor =ZJThemeColor;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -243,9 +281,27 @@ static    NSString  * const  key = @"searchWord";
         return cell;
     }
 
-    ArticleCell * cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ArticleCell class]) forIndexPath:indexPath];
-    cell.data = [[self.hitlist objectAtIndex:indexPath.section] data];
+Article_hitlist_data *data =  [[self.hitlist objectAtIndex:indexPath.section] data];
+    ArticleCell * cell;
+    switch (data.type) {
+        case UIImageViewNumOne:{
+           cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ZJArticleOneCell class]) forIndexPath:indexPath];
+
+            cell.mj_h = 80;
+        }
+            break;
+        case UIImageViewNumNone:
+            cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ZJArticleNoneCell class]) forIndexPath:indexPath];
+
+            break;
+        case UIImageViewNumThree:
+ cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ZJArticleThreeCell class]) forIndexPath:indexPath];
+
+            break;
+    }
+    cell.data = data;
     return cell;
+
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -263,14 +319,14 @@ static    NSString  * const  key = @"searchWord";
 
 //刷新列表
         //被选中的分类
-            self.sort = [self.searchResults.facets.sortlist objectAtIndex:indexPath.section] ;
+            self.sort = [self.facets.sortlist objectAtIndex:indexPath.section] ;
             [self.tableView.mj_header beginRefreshing];
             return;
         }
  //重新约束header
-        if (self.searchResults.facets.sortlist.count>1) {
+        if (self.facets.sortlist.count>1) {
             [tableView mas_updateConstraints:^(MASConstraintMaker *make) {
-                make.height.equalTo(@([tableView rowHeight]*self.searchResults.facets.sortlist.count));
+                make.height.equalTo(@([tableView rowHeight]*self.facets.sortlist.count));
             }];
       
                 [tableView layoutIfNeeded];
@@ -295,21 +351,31 @@ static    NSString  * const  key = @"searchWord";
         return;
     }
 
-    Article_hitlist_data * data = [[self.searchResults.hitlist objectAtIndex:indexPath.section] data];
+    Article_hitlist_data * data = [[self.hitlist objectAtIndex:indexPath.section] data];
+
+    ZJArticleDetialViewController *detial = [[ZJArticleDetialViewController alloc]init];
+    detial.data = data;
+    [self.navigationController pushViewController:detial animated:YES];
+    return;
+
     CarViewController * vc = [[CarViewController alloc]initWithNibName:nil bundle:nil];
     vc.wbnet = data.url;
     vc.title = data.title;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    if ([tableView isEqual:self.headTableView]) {
-        return Hight;
-    }
-    return 80.0f;
-
-}
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    if ([tableView isEqual:self.headTableView]) {
+//        return Hight;
+//    }
+//
+//    if ([[[tableView cellForRowAtIndexPath:indexPath] class] isKindOfClass:[ZJArticleThreeCell class]]) {
+//        return 140.0f;
+//    }
+//    return 80.0f;
+//
+//}
 
 
 

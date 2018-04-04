@@ -3,9 +3,9 @@
 #import "ZJFacets.h"
 @interface ArticleSearch : RLMObject
 @property NSInteger rowcount;
-@property RLMArray<Article_hitlist*><Article_hitlist> * hitlist;
+
 @property NSString *  searchWord;
 @property ZJFacets * facets;
- 
+@property RLMArray<Article_hitlist*><Article_hitlist>* hitlist;
 @end
 RLM_ARRAY_TYPE(ArticleSearch)

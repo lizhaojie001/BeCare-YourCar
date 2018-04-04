@@ -5,7 +5,7 @@
 {
     return @{ @"owners": [RLMPropertyDescriptor descriptorWithClass:Article_hitlist.class propertyName:@"light"] };
 }
-+(NSString *)primaryKey{
-    return @"title";
-}
+//+(NSString *)primaryKey{
+//    return @"title";
+//}
 @end

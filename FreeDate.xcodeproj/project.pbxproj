@@ -29,7 +29,6 @@
 		5249AF7C205FAC410041DE79 /* ArticleTypeThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5249AF74205FAC410041DE79 /* ArticleTypeThreeViewController.m */; };
 		5249AF7D205FAC410041DE79 /* ArticleTypeTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5249AF76205FAC410041DE79 /* ArticleTypeTwoViewController.m */; };
 		5249AF83205FAC840041DE79 /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5249AF81205FAC840041DE79 /* ArticleCell.m */; };
-		5249AF84205FAC840041DE79 /* ArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5249AF82205FAC840041DE79 /* ArticleCell.xib */; };
 		524A391C2058FC1100C67B07 /* kyfw.12306.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 524A391B2058FC1100C67B07 /* kyfw.12306.cn.cer */; };
 		524A391E2059001200C67B07 /* www.baishancloud.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 524A391D2059001100C67B07 /* www.baishancloud.com.cer */; };
 		524A6BCC2060AC33001DFF51 /* TransitionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A6BCB2060AC33001DFF51 /* TransitionObject.m */; };
@@ -69,6 +68,15 @@
 		526762702057A41B00CACF2F /* *appautohomecomcn.crt in Resources */ = {isa = PBXBuildFile; fileRef = 5267626E2057A41900CACF2F /* *appautohomecomcn.crt */; };
 		526762712057A41B00CACF2F /* *.app.autohome.com.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5267626F2057A41A00CACF2F /* *.app.autohome.com.cn.cer */; };
 		526762732057A53C00CACF2F /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 526762722057A53C00CACF2F /* Foundation+Log.m */; };
+		52810A6920731FF9006E094D /* ZJArticleNoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52810A6720731FF9006E094D /* ZJArticleNoneCell.m */; };
+		52810A6A20731FF9006E094D /* ZJArticleNoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52810A6820731FF9006E094D /* ZJArticleNoneCell.xib */; };
+		52810A6E20732060006E094D /* ZJArticleThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52810A6C20732060006E094D /* ZJArticleThreeCell.m */; };
+		52810A6F20732060006E094D /* ZJArticleThreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52810A6D20732060006E094D /* ZJArticleThreeCell.xib */; };
+		52810A7320732879006E094D /* ZJArticleOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52810A7120732879006E094D /* ZJArticleOneCell.m */; };
+		52810A7420732879006E094D /* ZJArticleOneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52810A7220732879006E094D /* ZJArticleOneCell.xib */; };
+		52810A7D2073597C006E094D /* ZJArticleDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52810A7B2073597C006E094D /* ZJArticleDetialViewController.m */; };
+		52810A7E2073597C006E094D /* ZJArticleDetialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52810A7C2073597C006E094D /* ZJArticleDetialViewController.xib */; };
+		52810A8120739D16006E094D /* abc.html in Resources */ = {isa = PBXBuildFile; fileRef = 52810A8020739D15006E094D /* abc.html */; };
 		528816B0204E2D2E00435F5A /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528816AF204E2D2E00435F5A /* MainTableViewController.m */; };
 		52881878204EA1C300435F5A /* M13ProgressViewStripedBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 52881877204EA1C300435F5A /* M13ProgressViewStripedBar.m */; };
 		5288187B204EA66E00435F5A /* M13ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52881879204EA66D00435F5A /* M13ProgressView.m */; };
@@ -151,7 +159,6 @@
 		5249AF76205FAC410041DE79 /* ArticleTypeTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTypeTwoViewController.m; sourceTree = "<group>"; };
 		5249AF80205FAC840041DE79 /* ArticleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleCell.h; sourceTree = "<group>"; };
 		5249AF81205FAC840041DE79 /* ArticleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleCell.m; sourceTree = "<group>"; };
-		5249AF82205FAC840041DE79 /* ArticleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleCell.xib; sourceTree = "<group>"; };
 		524A391B2058FC1100C67B07 /* kyfw.12306.cn.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = kyfw.12306.cn.cer; sourceTree = "<group>"; };
 		524A391D2059001100C67B07 /* www.baishancloud.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.baishancloud.com.cer; sourceTree = "<group>"; };
 		524A6BCA2060AC33001DFF51 /* TransitionObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionObject.h; sourceTree = "<group>"; };
@@ -219,6 +226,19 @@
 		5267626E2057A41900CACF2F /* *appautohomecomcn.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "*appautohomecomcn.crt"; sourceTree = "<group>"; };
 		5267626F2057A41A00CACF2F /* *.app.autohome.com.cn.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "*.app.autohome.com.cn.cer"; sourceTree = "<group>"; };
 		526762722057A53C00CACF2F /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		52810A6620731FF9006E094D /* ZJArticleNoneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJArticleNoneCell.h; sourceTree = "<group>"; };
+		52810A6720731FF9006E094D /* ZJArticleNoneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJArticleNoneCell.m; sourceTree = "<group>"; };
+		52810A6820731FF9006E094D /* ZJArticleNoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJArticleNoneCell.xib; sourceTree = "<group>"; };
+		52810A6B20732060006E094D /* ZJArticleThreeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJArticleThreeCell.h; sourceTree = "<group>"; };
+		52810A6C20732060006E094D /* ZJArticleThreeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJArticleThreeCell.m; sourceTree = "<group>"; };
+		52810A6D20732060006E094D /* ZJArticleThreeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJArticleThreeCell.xib; sourceTree = "<group>"; };
+		52810A7020732879006E094D /* ZJArticleOneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJArticleOneCell.h; sourceTree = "<group>"; };
+		52810A7120732879006E094D /* ZJArticleOneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJArticleOneCell.m; sourceTree = "<group>"; };
+		52810A7220732879006E094D /* ZJArticleOneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJArticleOneCell.xib; sourceTree = "<group>"; };
+		52810A7A2073597C006E094D /* ZJArticleDetialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJArticleDetialViewController.h; sourceTree = "<group>"; };
+		52810A7B2073597C006E094D /* ZJArticleDetialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJArticleDetialViewController.m; sourceTree = "<group>"; };
+		52810A7C2073597C006E094D /* ZJArticleDetialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZJArticleDetialViewController.xib; sourceTree = "<group>"; };
+		52810A8020739D15006E094D /* abc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = abc.html; sourceTree = "<group>"; };
 		528816AE204E2D2E00435F5A /* MainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
 		528816AF204E2D2E00435F5A /* MainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
 		52881876204EA1C300435F5A /* M13ProgressViewStripedBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M13ProgressViewStripedBar.h; sourceTree = "<group>"; };
@@ -366,6 +386,9 @@
 				5249AF6F205FAC410041DE79 /* ArticleTypeThreeViewController.h */,
 				5249AF70205FAC410041DE79 /* SwithViewController.m */,
 				5249AF71205FAC410041DE79 /* ArticleTypeOneViewController.m */,
+				52810A7A2073597C006E094D /* ZJArticleDetialViewController.h */,
+				52810A7B2073597C006E094D /* ZJArticleDetialViewController.m */,
+				52810A7C2073597C006E094D /* ZJArticleDetialViewController.xib */,
 				5249AF72205FAC410041DE79 /* ArticleViewController.m */,
 				5249AF73205FAC410041DE79 /* ArticleTypeFourViewController.m */,
 				5249AF74205FAC410041DE79 /* ArticleTypeThreeViewController.m */,
@@ -388,9 +411,17 @@
 		5249AF7F205FAC540041DE79 /* V */ = {
 			isa = PBXGroup;
 			children = (
+				52810A7020732879006E094D /* ZJArticleOneCell.h */,
+				52810A7120732879006E094D /* ZJArticleOneCell.m */,
+				52810A7220732879006E094D /* ZJArticleOneCell.xib */,
+				52810A6B20732060006E094D /* ZJArticleThreeCell.h */,
+				52810A6C20732060006E094D /* ZJArticleThreeCell.m */,
+				52810A6D20732060006E094D /* ZJArticleThreeCell.xib */,
+				52810A6620731FF9006E094D /* ZJArticleNoneCell.h */,
+				52810A6720731FF9006E094D /* ZJArticleNoneCell.m */,
+				52810A6820731FF9006E094D /* ZJArticleNoneCell.xib */,
 				5249AF80205FAC840041DE79 /* ArticleCell.h */,
 				5249AF81205FAC840041DE79 /* ArticleCell.m */,
-				5249AF82205FAC840041DE79 /* ArticleCell.xib */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -609,6 +640,7 @@
 				5294A13C2040934900CD58E1 /* EmptyViewController.xib */,
 				5294A01B20405D9C00CD58E1 /* Info.plist */,
 				525CA4342056636E00ED5B5C /* selfSignedRoot.cer */,
+				52810A8020739D15006E094D /* abc.html */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -854,11 +886,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5294A13E2040934900CD58E1 /* EmptyViewController.xib in Resources */,
+				52810A6A20731FF9006E094D /* ZJArticleNoneCell.xib in Resources */,
 				52C06F3F20463F0F0049BEC3 /* Localizable.strings in Resources */,
 				526762712057A41B00CACF2F /* *.app.autohome.com.cn.cer in Resources */,
 				5294A1252040645400CD58E1 /* wt071.ttf in Resources */,
-				5249AF84205FAC840041DE79 /* ArticleCell.xib in Resources */,
 				52CCD420206CD61F00D911C4 /* DigiCert Global Root CA.cer in Resources */,
+				52810A6F20732060006E094D /* ZJArticleThreeCell.xib in Resources */,
 				52575C35205BA30D004F4317 /* CarVideoCell.xib in Resources */,
 				524A391E2059001200C67B07 /* www.baishancloud.com.cer in Resources */,
 				5294A00E204058F800CD58E1 /* LaunchScreen.storyboard in Resources */,
@@ -868,6 +901,8 @@
 				5207A5F520510DB20035476A /* CarViewController.xib in Resources */,
 				5267626D2057A2B500CACF2F /* VeriSignClass3PublicPrimaryCertificationAuthority-G5.crt in Resources */,
 				5294A1222040645400CD58E1 /* wt024.ttf in Resources */,
+				52810A7420732879006E094D /* ZJArticleOneCell.xib in Resources */,
+				52810A8120739D16006E094D /* abc.html in Resources */,
 				52575C37205BB4A1004F4317 /* Symantec Class 3 Secure Server CA - G4.cer in Resources */,
 				526762702057A41B00CACF2F /* *appautohomecomcn.crt in Resources */,
 				52575C34205BA30D004F4317 /* nswyFollowCell.xib in Resources */,
@@ -877,6 +912,7 @@
 				52C06F3720463C580049BEC3 /* InfoPlist.strings in Resources */,
 				5267626B20579F4500CACF2F /* TrustAsia DV SSL CA - G5.cer in Resources */,
 				525CA4352056636E00ED5B5C /* selfSignedRoot.cer in Resources */,
+				52810A7E2073597C006E094D /* ZJArticleDetialViewController.xib in Resources */,
 				5294A00B204058F800CD58E1 /* Assets.xcassets in Resources */,
 				52423E7D205E681900B8D88A /* VideoCommentCell.xib in Resources */,
 			);
@@ -1022,15 +1058,18 @@
 				52423E7C205E681900B8D88A /* VideoCommentCell.m in Sources */,
 				5294A0EF2040601F00CD58E1 /* NXHNaviController.m in Sources */,
 				52575C10205B68B2004F4317 /* Article_hitlist.m in Sources */,
+				52810A7320732879006E094D /* ZJArticleOneCell.m in Sources */,
 				52575C0D205B687F004F4317 /* ArticleSearch.m in Sources */,
 				5294A10E2040618600CD58E1 /* nswyCategaryHeaderCell.m in Sources */,
 				52881878204EA1C300435F5A /* M13ProgressViewStripedBar.m in Sources */,
 				5294A01D20405D9C00CD58E1 /* AppDelegate.m in Sources */,
 				52582AF92067A31D003F3FCB /* ZJArtilteSort.m in Sources */,
+				52810A7D2073597C006E094D /* ZJArticleDetialViewController.m in Sources */,
 				52676266205766BB00CACF2F /* UIViewController+BarStyle.m in Sources */,
 				5207A5F120510DB20035476A /* nswySettingController.m in Sources */,
 				5294A10B2040618600CD58E1 /* nswyCategaryCollection.m in Sources */,
 				5249AF83205FAC840041DE79 /* ArticleCell.m in Sources */,
+				52810A6E20732060006E094D /* ZJArticleThreeCell.m in Sources */,
 				52CA04E0205AA3EE004813FB /* AFHTTPSessionManager+Method.m in Sources */,
 				525CA448205688FE00ED5B5C /* UIView+Frame.m in Sources */,
 				5249AF7C205FAC410041DE79 /* ArticleTypeThreeViewController.m in Sources */,
@@ -1049,6 +1088,7 @@
 				52575C3D205BC14E004F4317 /* CarVideoList.m in Sources */,
 				52495F37205D74A800C22A5A /* Article_light.m in Sources */,
 				52575C30205BA30D004F4317 /* nswyFollowViewController.m in Sources */,
+				52810A6920731FF9006E094D /* ZJArticleNoneCell.m in Sources */,
 				5249AF79205FAC410041DE79 /* ArticleTypeOneViewController.m in Sources */,
 				52575C33205BA30D004F4317 /* CarVideoCell.m in Sources */,
 				5207A5F420510DB20035476A /* CarViewController.m in Sources */,

@@ -1,4 +1,11 @@
 #import <Realm/Realm.h>
+
+typedef enum : NSUInteger {
+    UIImageViewNumNone, //没有图
+    UIImageViewNumOne,
+    UIImageViewNumThree,
+} UIImageViewNumType;
+
 @interface Article_hitlist_data : RLMObject
 @property NSInteger  replyCount;
 @property NSString * date;
@@ -27,6 +34,9 @@
 @property NSInteger rank_score_c;
 @property NSInteger rank_score_b;
 @property NSString * FirstCoverImg;
-@property (readonly) RLMLinkingObjects *owners;
+
+
+@property (nonatomic) UIImageViewNumType type;
+//@property (readonly) RLMLinkingObjects *owners;
  @end
 RLM_ARRAY_TYPE(Article_hitlist_data)
