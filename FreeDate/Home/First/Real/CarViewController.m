@@ -48,7 +48,8 @@
         return;
     }
     self.toolbar.hidden = YES;
-    NSString *  html = [NSString stringWithFormat:@" <html><head><title>关于</title></head><body><div><font align=\"center\" size=\"75\" color=\"CadetBlue\">%@</font></div></body>                       </html>",self.wbnet];
+//    NSString *  html = [NSString stringWithFormat:@" <html><head><title>关于</title></head><body><div><font align=\"center\" size=\"75\" color=\"CadetBlue\">%@</font></div></body>                       </html>",self.wbnet];
+    NSString * html = @"<a href=\"111\">  <img width=\"620\" height=\"464\" src=\"https://qnwww2.autoimg.cn/newsdfs/g12/M11/12/A8/620x0_1_autohomecar__wKjBy1iqv8-ALqYNAAKiPrAmmKo104.jpg?watermark/1/image/aHR0cDovL3FuLnd3dzIuYXV0b2ltZy5jbi93YXRlcm1hcmsucG5n/\" data-original=\"https://qnwww2.autoimg.cn/newsdfs/g12/M11/12/A8/620x0_1_autohomecar__wKjBy1iqv8-ALqYNAAKiPrAmmKo104.jpg?watermark/1/image/aHR0cDovL3FuLnd3dzIuYXV0b2ltZy5jbi93YXRlcm1hcmsucG5n/\" onerror=\"picNotFind(this);\" style=\"height: 224.516px; width: 300px;\"></a>";
     [web sizeToFit];
     [web loadHTMLString:html baseURL:nil];
 }

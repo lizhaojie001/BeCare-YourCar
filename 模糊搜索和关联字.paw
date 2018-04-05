@@ -5,7 +5,7 @@
     <databaseInfo>
         <version>134481920</version>
         <UUID>4D65A444-ADE4-48CA-ACA9-DC1741B23BFA</UUID>
-        <nextObjectID>190</nextObjectID>
+        <nextObjectID>194</nextObjectID>
         <metadata>
             <plist version="1.0">
                 <dict>
@@ -135,9 +135,9 @@
         <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z113 z152"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z110">
-        <attribute name="value" type="string"></attribute>
+        <attribute name="value" type="string">www3.autoimg.cn</attribute>
         <attribute name="order" type="int64">1</attribute>
-        <attribute name="name" type="string"></attribute>
+        <attribute name="name" type="string">Host</attribute>
         <attribute name="enabled" type="bool">1</attribute>
         <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
@@ -151,7 +151,7 @@
     </object>
     <object type="LMREQUEST" id="z112">
         <attribute name="uuid" type="string">E71A17ED-8C1F-44B0-A151-3E586EF204CD</attribute>
-        <attribute name="url" type="string">https://pcmx.autohome.com.cn/impress?psids=2721%2C3972\u2600random=0.707300991079385\u2600pagereferer=\u2600platform=3\u2600os=0\u2600lng=\u2600lat=\u2600app_deviceid=\u2600screenwide=375\u2600screenhigh=812\u2600flash_enable=01\u2600pageid=1522735290449_6369\u2600carousel=87786\u2600siteid=1211001\u2600categoryid=37\u2600subcategoryid=30\u2600series=\u2600brand=\u2600level=\u2600city=\u2600province=\u2600sessionid=B8C5C0EB-FE6E-45F1-9AAD-096F8D140B0B%7C%7C2018-02-23%2B21%3A31%3A34.405%7C%7C0\u2600loadid=1522735290260tQINzbflm1\u2600ip=1.180.235.37\u2600snapshotId=\u2600wd=\u2600wdt=\u2600wdc=\u2600sou=\u2600fuel_type=\u2600filter=0\u2600jsver=2018-03-08\u2600multiple=0</attribute>
+        <attribute name="url" type="string">https://119.188.2.119/newsdfs/g24/M07/BA/CA/620x0_0_autohomecar__wKgHIVpxj1yAdz6dAAEZqiVjX7I519.jpg.webp</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -163,7 +163,7 @@
         <attribute name="name" type="string">My API</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z178"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z110"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z194 z110 z191 z192 z193"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z113">
         <attribute name="value" type="string">news.app.autohome.com.cn</attribute>
@@ -868,7 +868,7 @@
     <object type="LMREQUEST" id="z180">
         <attribute name="clientcertificate" type="string">[{"data":{"keyUUID":"00A31B21-BF05-40B7-9991-D1170002108E","keychainCertificateName":"DigiCert High Assurance EV Root CA","pemString":"03014EB86ED41D042DD3F69ECDCF39685D0A46A0A8838A61A1E723DF63B471DB807579EA3FBF3DECA6A7378332211FEDE6D770A697011B06E92CB58E72407C7BB47740BF9EE660F5F8E18FEE1E3AC99184C7","mode":0},"identifier":"com.luckymarmot.CertificateDynamicValue"}]</attribute>
         <attribute name="uuid" type="string">2E4306A3-B2EC-446F-80C0-97653DFB4260</attribute>
-        <attribute name="url" type="string">http://61.240.128.76/cont_v8.8.5/content/news/newscontent-pm1-n898899-t0-rct1-ish1-ver.json</attribute>
+        <attribute name="url" type="string">http://61.240.128.76/cont_v8.8.5/content/news/newscontent-pm1-n915302-t0-rct1-ish1-ver.json</attribute>
         <attribute name="storecookies" type="bool">1</attribute>
         <attribute name="sendcookies" type="bool">1</attribute>
         <attribute name="redirectmethod" type="bool">0</attribute>
@@ -879,7 +879,7 @@
         <attribute name="name" type="string">文章详情</attribute>
         <relationship name="parent" type="0/1" destination="LMREQUESTTREEITEM" idrefs="z164"></relationship>
         <relationship name="children" type="0/0" destination="LMREQUESTTREEITEM"></relationship>
-        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z187 z186 z182 z181 z190"></relationship>
+        <relationship name="headers" type="0/0" destination="LMKEYVALUE" idrefs="z187 z182 z186 z181 z190"></relationship>
     </object>
     <object type="LMKEYVALUE" id="z181">
         <attribute name="value" type="string">iPhone 11.3 autohome 8.9.0 iPhone</attribute>
@@ -965,5 +965,45 @@
         <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
         <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z180"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z191">
+        <attribute name="value" type="string">http://www.autohome.com.cn</attribute>
+        <attribute name="order" type="int64">2</attribute>
+        <attribute name="name" type="string">Referer</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z112"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z192">
+        <attribute name="value" type="string">image/webp,image/*;q=0.8</attribute>
+        <attribute name="order" type="int64">3</attribute>
+        <attribute name="name" type="string">Accept</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z112"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z193">
+        <attribute name="value" type="string">AHNetworkingFramework 895.1.7 rv:1 (iPhone; iOS 11.3; zh_CN)</attribute>
+        <attribute name="order" type="int64">4</attribute>
+        <attribute name="name" type="string">User-Agent</attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z112"></relationship>
+    </object>
+    <object type="LMKEYVALUE" id="z194">
+        <attribute name="value" type="string"></attribute>
+        <attribute name="order" type="int64">5</attribute>
+        <attribute name="name" type="string"></attribute>
+        <attribute name="enabled" type="bool">1</attribute>
+        <relationship name="groupforbodyparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforheaders" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="groupforurlparameters" type="0/1" destination="LMREQUESTGROUP"></relationship>
+        <relationship name="request" type="0/1" destination="LMREQUEST" idrefs="z112"></relationship>
     </object>
 </database>

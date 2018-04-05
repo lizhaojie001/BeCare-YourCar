@@ -29,8 +29,6 @@
 		5249AF7C205FAC410041DE79 /* ArticleTypeThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5249AF74205FAC410041DE79 /* ArticleTypeThreeViewController.m */; };
 		5249AF7D205FAC410041DE79 /* ArticleTypeTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5249AF76205FAC410041DE79 /* ArticleTypeTwoViewController.m */; };
 		5249AF83205FAC840041DE79 /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5249AF81205FAC840041DE79 /* ArticleCell.m */; };
-		524A391C2058FC1100C67B07 /* kyfw.12306.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 524A391B2058FC1100C67B07 /* kyfw.12306.cn.cer */; };
-		524A391E2059001200C67B07 /* www.baishancloud.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 524A391D2059001100C67B07 /* www.baishancloud.com.cer */; };
 		524A6BCC2060AC33001DFF51 /* TransitionObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A6BCB2060AC33001DFF51 /* TransitionObject.m */; };
 		524A6BD22060EB36001DFF51 /* UIScreen+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A6BD12060EB36001DFF51 /* UIScreen+hook.m */; };
 		524A6BD520610E04001DFF51 /* UIApplication+hook.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A6BD420610E04001DFF51 /* UIApplication+hook.m */; };
@@ -49,7 +47,6 @@
 		52575C33205BA30D004F4317 /* CarVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52575C2B205BA30D004F4317 /* CarVideoCell.m */; };
 		52575C34205BA30D004F4317 /* nswyFollowCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52575C2D205BA30D004F4317 /* nswyFollowCell.xib */; };
 		52575C35205BA30D004F4317 /* CarVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52575C2E205BA30D004F4317 /* CarVideoCell.xib */; };
-		52575C37205BB4A1004F4317 /* Symantec Class 3 Secure Server CA - G4.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52575C36205BB4A1004F4317 /* Symantec Class 3 Secure Server CA - G4.cer */; };
 		52575C3A205BBBF3004F4317 /* EditVideos.m in Sources */ = {isa = PBXBuildFile; fileRef = 52575C39205BBBF3004F4317 /* EditVideos.m */; };
 		52575C3D205BC14E004F4317 /* CarVideoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 52575C3C205BC14E004F4317 /* CarVideoList.m */; };
 		52582AF32067A1A6003F3FCB /* ZJFacets.m in Sources */ = {isa = PBXBuildFile; fileRef = 52582AF22067A1A6003F3FCB /* ZJFacets.m */; };
@@ -62,11 +59,7 @@
 		525CA448205688FE00ED5B5C /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 525CA443205688FE00ED5B5C /* UIView+Frame.m */; };
 		526762632057666B00CACF2F /* SuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 526762622057666B00CACF2F /* SuperViewController.m */; };
 		52676266205766BB00CACF2F /* UIViewController+BarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 52676265205766BB00CACF2F /* UIViewController+BarStyle.m */; };
-		5267626A20579F4500CACF2F /* TrustAsia TLS RSA CA.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5267626820579F4500CACF2F /* TrustAsia TLS RSA CA.cer */; };
-		5267626B20579F4500CACF2F /* TrustAsia DV SSL CA - G5.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5267626920579F4500CACF2F /* TrustAsia DV SSL CA - G5.cer */; };
 		5267626D2057A2B500CACF2F /* VeriSignClass3PublicPrimaryCertificationAuthority-G5.crt in Resources */ = {isa = PBXBuildFile; fileRef = 5267626C2057A2B400CACF2F /* VeriSignClass3PublicPrimaryCertificationAuthority-G5.crt */; };
-		526762702057A41B00CACF2F /* *appautohomecomcn.crt in Resources */ = {isa = PBXBuildFile; fileRef = 5267626E2057A41900CACF2F /* *appautohomecomcn.crt */; };
-		526762712057A41B00CACF2F /* *.app.autohome.com.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 5267626F2057A41A00CACF2F /* *.app.autohome.com.cn.cer */; };
 		526762732057A53C00CACF2F /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 526762722057A53C00CACF2F /* Foundation+Log.m */; };
 		52810A6920731FF9006E094D /* ZJArticleNoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52810A6720731FF9006E094D /* ZJArticleNoneCell.m */; };
 		52810A6A20731FF9006E094D /* ZJArticleNoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52810A6820731FF9006E094D /* ZJArticleNoneCell.xib */; };
@@ -97,6 +90,16 @@
 		5294A12B2040683B00CD58E1 /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294A12A2040683B00CD58E1 /* Car.m */; };
 		5294A13D2040934900CD58E1 /* EmptyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5294A13B2040934900CD58E1 /* EmptyViewController.m */; };
 		5294A13E2040934900CD58E1 /* EmptyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5294A13C2040934900CD58E1 /* EmptyViewController.xib */; };
+		52A99C64207603B0003B58B5 /* kyfw.12306.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C5B207603AF003B58B5 /* kyfw.12306.cn.cer */; };
+		52A99C65207603B0003B58B5 /* TrustAsia TLS RSA CA.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C5C207603AF003B58B5 /* TrustAsia TLS RSA CA.cer */; };
+		52A99C66207603B0003B58B5 /* DigiCert Global Root CA.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C5D207603AF003B58B5 /* DigiCert Global Root CA.cer */; };
+		52A99C67207603B0003B58B5 /* Symantec Class 3 Secure Server CA - G4.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C5E207603AF003B58B5 /* Symantec Class 3 Secure Server CA - G4.cer */; };
+		52A99C68207603B0003B58B5 /* www.baishancloud.com.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C5F207603AF003B58B5 /* www.baishancloud.com.cer */; };
+		52A99C69207603B0003B58B5 /* *appautohomecomcn.crt in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C60207603AF003B58B5 /* *appautohomecomcn.crt */; };
+		52A99C6A207603B0003B58B5 /* TrustAsia DV SSL CA - G5.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C61207603AF003B58B5 /* TrustAsia DV SSL CA - G5.cer */; };
+		52A99C6B207603B0003B58B5 /* MDM-2015-9-16.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C62207603AF003B58B5 /* MDM-2015-9-16.cer */; };
+		52A99C6C207603B0003B58B5 /* *.app.autohome.com.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C63207603AF003B58B5 /* *.app.autohome.com.cn.cer */; };
+		52A99C6E207603B9003B58B5 /* *.autoimg.cn.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52A99C6D207603B9003B58B5 /* *.autoimg.cn.cer */; };
 		52B311B5204C179500D8A440 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B311B4204C179400D8A440 /* LoginViewController.m */; };
 		52B311BB204C187700D8A440 /* LEEAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B311B9204C187700D8A440 /* LEEAlert.m */; };
 		52B311E5204C194300D8A440 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B311E3204C194300D8A440 /* MBProgressHUD.m */; };
@@ -106,7 +109,6 @@
 		52C06F3720463C580049BEC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52C06F3920463C580049BEC3 /* InfoPlist.strings */; };
 		52C06F3F20463F0F0049BEC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52C06F4120463F0F0049BEC3 /* Localizable.strings */; };
 		52CA04E0205AA3EE004813FB /* AFHTTPSessionManager+Method.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CA04DF205AA3EE004813FB /* AFHTTPSessionManager+Method.m */; };
-		52CCD420206CD61F00D911C4 /* DigiCert Global Root CA.cer in Resources */ = {isa = PBXBuildFile; fileRef = 52CCD41F206CD61F00D911C4 /* DigiCert Global Root CA.cer */; };
 		52CCD423206CDEA300D911C4 /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CCD422206CDEA300D911C4 /* YYFPSLabel.m */; };
 		52CDFA84205582A300DDEB8D /* NetworkTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CDFA82205582A300DDEB8D /* NetworkTool.m */; };
 		BF91FA075CCA3FB44240E369 /* libPods-FreeDate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1336DB7A871D7D9D0E6D8EFC /* libPods-FreeDate.a */; };
@@ -159,8 +161,6 @@
 		5249AF76205FAC410041DE79 /* ArticleTypeTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleTypeTwoViewController.m; sourceTree = "<group>"; };
 		5249AF80205FAC840041DE79 /* ArticleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleCell.h; sourceTree = "<group>"; };
 		5249AF81205FAC840041DE79 /* ArticleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ArticleCell.m; sourceTree = "<group>"; };
-		524A391B2058FC1100C67B07 /* kyfw.12306.cn.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = kyfw.12306.cn.cer; sourceTree = "<group>"; };
-		524A391D2059001100C67B07 /* www.baishancloud.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.baishancloud.com.cer; sourceTree = "<group>"; };
 		524A6BCA2060AC33001DFF51 /* TransitionObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransitionObject.h; sourceTree = "<group>"; };
 		524A6BCB2060AC33001DFF51 /* TransitionObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransitionObject.m; sourceTree = "<group>"; };
 		524A6BD02060EB36001DFF51 /* UIScreen+hook.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScreen+hook.h"; sourceTree = "<group>"; };
@@ -195,7 +195,6 @@
 		52575C2D205BA30D004F4317 /* nswyFollowCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nswyFollowCell.xib; sourceTree = "<group>"; };
 		52575C2E205BA30D004F4317 /* CarVideoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CarVideoCell.xib; sourceTree = "<group>"; };
 		52575C2F205BA30D004F4317 /* CarVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarVideoCell.h; sourceTree = "<group>"; };
-		52575C36205BB4A1004F4317 /* Symantec Class 3 Secure Server CA - G4.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Symantec Class 3 Secure Server CA - G4.cer"; sourceTree = "<group>"; };
 		52575C38205BBBF3004F4317 /* EditVideos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditVideos.h; sourceTree = "<group>"; };
 		52575C39205BBBF3004F4317 /* EditVideos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditVideos.m; sourceTree = "<group>"; };
 		52575C3B205BC14E004F4317 /* CarVideoList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CarVideoList.h; sourceTree = "<group>"; };
@@ -220,11 +219,7 @@
 		526762622057666B00CACF2F /* SuperViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperViewController.m; sourceTree = "<group>"; };
 		52676264205766BB00CACF2F /* UIViewController+BarStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BarStyle.h"; sourceTree = "<group>"; };
 		52676265205766BB00CACF2F /* UIViewController+BarStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BarStyle.m"; sourceTree = "<group>"; };
-		5267626820579F4500CACF2F /* TrustAsia TLS RSA CA.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrustAsia TLS RSA CA.cer"; sourceTree = "<group>"; };
-		5267626920579F4500CACF2F /* TrustAsia DV SSL CA - G5.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrustAsia DV SSL CA - G5.cer"; sourceTree = "<group>"; };
 		5267626C2057A2B400CACF2F /* VeriSignClass3PublicPrimaryCertificationAuthority-G5.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "VeriSignClass3PublicPrimaryCertificationAuthority-G5.crt"; sourceTree = "<group>"; };
-		5267626E2057A41900CACF2F /* *appautohomecomcn.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "*appautohomecomcn.crt"; sourceTree = "<group>"; };
-		5267626F2057A41A00CACF2F /* *.app.autohome.com.cn.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "*.app.autohome.com.cn.cer"; sourceTree = "<group>"; };
 		526762722057A53C00CACF2F /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		52810A6620731FF9006E094D /* ZJArticleNoneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJArticleNoneCell.h; sourceTree = "<group>"; };
 		52810A6720731FF9006E094D /* ZJArticleNoneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZJArticleNoneCell.m; sourceTree = "<group>"; };
@@ -275,6 +270,16 @@
 		5294A13B2040934900CD58E1 /* EmptyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmptyViewController.m; sourceTree = "<group>"; };
 		5294A13C2040934900CD58E1 /* EmptyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyViewController.xib; sourceTree = "<group>"; };
 		5294A13F2040BB8200CD58E1 /* FreeDate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FreeDate.entitlements; sourceTree = "<group>"; };
+		52A99C5B207603AF003B58B5 /* kyfw.12306.cn.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = kyfw.12306.cn.cer; sourceTree = "<group>"; };
+		52A99C5C207603AF003B58B5 /* TrustAsia TLS RSA CA.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrustAsia TLS RSA CA.cer"; sourceTree = "<group>"; };
+		52A99C5D207603AF003B58B5 /* DigiCert Global Root CA.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DigiCert Global Root CA.cer"; sourceTree = "<group>"; };
+		52A99C5E207603AF003B58B5 /* Symantec Class 3 Secure Server CA - G4.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Symantec Class 3 Secure Server CA - G4.cer"; sourceTree = "<group>"; };
+		52A99C5F207603AF003B58B5 /* www.baishancloud.com.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = www.baishancloud.com.cer; sourceTree = "<group>"; };
+		52A99C60207603AF003B58B5 /* *appautohomecomcn.crt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "*appautohomecomcn.crt"; sourceTree = "<group>"; };
+		52A99C61207603AF003B58B5 /* TrustAsia DV SSL CA - G5.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TrustAsia DV SSL CA - G5.cer"; sourceTree = "<group>"; };
+		52A99C62207603AF003B58B5 /* MDM-2015-9-16.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MDM-2015-9-16.cer"; sourceTree = "<group>"; };
+		52A99C63207603AF003B58B5 /* *.app.autohome.com.cn.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "*.app.autohome.com.cn.cer"; sourceTree = "<group>"; };
+		52A99C6D207603B9003B58B5 /* *.autoimg.cn.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "*.autoimg.cn.cer"; sourceTree = "<group>"; };
 		52B311B3204C179400D8A440 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		52B311B4204C179400D8A440 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		52B311B8204C187700D8A440 /* LEEAlertHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LEEAlertHelper.h; sourceTree = "<group>"; };
@@ -302,7 +307,6 @@
 		52CA04CF205A524F004813FB /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		52CA04DE205AA3EE004813FB /* AFHTTPSessionManager+Method.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AFHTTPSessionManager+Method.h"; sourceTree = "<group>"; };
 		52CA04DF205AA3EE004813FB /* AFHTTPSessionManager+Method.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPSessionManager+Method.m"; sourceTree = "<group>"; };
-		52CCD41F206CD61F00D911C4 /* DigiCert Global Root CA.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DigiCert Global Root CA.cer"; sourceTree = "<group>"; };
 		52CCD421206CDEA200D911C4 /* YYFPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFPSLabel.h; sourceTree = "<group>"; };
 		52CCD422206CDEA300D911C4 /* YYFPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFPSLabel.m; sourceTree = "<group>"; };
 		52CDFA82205582A300DDEB8D /* NetworkTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkTool.m; sourceTree = "<group>"; };
@@ -608,15 +612,8 @@
 		5294A000204058F800CD58E1 /* FreeDate */ = {
 			isa = PBXGroup;
 			children = (
-				52CCD41F206CD61F00D911C4 /* DigiCert Global Root CA.cer */,
+				52A99C5A207603AF003B58B5 /* cer */,
 				5294A13F2040BB8200CD58E1 /* FreeDate.entitlements */,
-				52575C36205BB4A1004F4317 /* Symantec Class 3 Secure Server CA - G4.cer */,
-				524A391D2059001100C67B07 /* www.baishancloud.com.cer */,
-				524A391B2058FC1100C67B07 /* kyfw.12306.cn.cer */,
-				5267626F2057A41A00CACF2F /* *.app.autohome.com.cn.cer */,
-				5267626E2057A41900CACF2F /* *appautohomecomcn.crt */,
-				5267626920579F4500CACF2F /* TrustAsia DV SSL CA - G5.cer */,
-				5267626820579F4500CACF2F /* TrustAsia TLS RSA CA.cer */,
 				5294A0EA2040601F00CD58E1 /* Home */,
 				5294A01720405D9C00CD58E1 /* Other */,
 				5294A00A204058F800CD58E1 /* Assets.xcassets */,
@@ -715,6 +712,23 @@
 				5294A1112040618F00CD58E1 /* PellTableViewSelect.h */,
 			);
 			path = CXPopView;
+			sourceTree = "<group>";
+		};
+		52A99C5A207603AF003B58B5 /* cer */ = {
+			isa = PBXGroup;
+			children = (
+				52A99C6D207603B9003B58B5 /* *.autoimg.cn.cer */,
+				52A99C5B207603AF003B58B5 /* kyfw.12306.cn.cer */,
+				52A99C5C207603AF003B58B5 /* TrustAsia TLS RSA CA.cer */,
+				52A99C5D207603AF003B58B5 /* DigiCert Global Root CA.cer */,
+				52A99C5E207603AF003B58B5 /* Symantec Class 3 Secure Server CA - G4.cer */,
+				52A99C5F207603AF003B58B5 /* www.baishancloud.com.cer */,
+				52A99C60207603AF003B58B5 /* *appautohomecomcn.crt */,
+				52A99C61207603AF003B58B5 /* TrustAsia DV SSL CA - G5.cer */,
+				52A99C62207603AF003B58B5 /* MDM-2015-9-16.cer */,
+				52A99C63207603AF003B58B5 /* *.app.autohome.com.cn.cer */,
+			);
+			path = cer;
 			sourceTree = "<group>";
 		};
 		52B311B7204C187700D8A440 /* LEEAlert */ = {
@@ -888,29 +902,31 @@
 				5294A13E2040934900CD58E1 /* EmptyViewController.xib in Resources */,
 				52810A6A20731FF9006E094D /* ZJArticleNoneCell.xib in Resources */,
 				52C06F3F20463F0F0049BEC3 /* Localizable.strings in Resources */,
-				526762712057A41B00CACF2F /* *.app.autohome.com.cn.cer in Resources */,
 				5294A1252040645400CD58E1 /* wt071.ttf in Resources */,
-				52CCD420206CD61F00D911C4 /* DigiCert Global Root CA.cer in Resources */,
 				52810A6F20732060006E094D /* ZJArticleThreeCell.xib in Resources */,
+				52A99C6E207603B9003B58B5 /* *.autoimg.cn.cer in Resources */,
+				52A99C65207603B0003B58B5 /* TrustAsia TLS RSA CA.cer in Resources */,
+				52A99C6C207603B0003B58B5 /* *.app.autohome.com.cn.cer in Resources */,
 				52575C35205BA30D004F4317 /* CarVideoCell.xib in Resources */,
-				524A391E2059001200C67B07 /* www.baishancloud.com.cer in Resources */,
 				5294A00E204058F800CD58E1 /* LaunchScreen.storyboard in Resources */,
-				524A391C2058FC1100C67B07 /* kyfw.12306.cn.cer in Resources */,
+				52A99C66207603B0003B58B5 /* DigiCert Global Root CA.cer in Resources */,
 				5294A1232040645400CD58E1 /* garto16.ttf in Resources */,
+				52A99C6B207603B0003B58B5 /* MDM-2015-9-16.cer in Resources */,
 				52BBF38A204C6E7F003EB00C /* nswyAboutController.xib in Resources */,
+				52A99C67207603B0003B58B5 /* Symantec Class 3 Secure Server CA - G4.cer in Resources */,
+				52A99C68207603B0003B58B5 /* www.baishancloud.com.cer in Resources */,
+				52A99C69207603B0003B58B5 /* *appautohomecomcn.crt in Resources */,
 				5207A5F520510DB20035476A /* CarViewController.xib in Resources */,
 				5267626D2057A2B500CACF2F /* VeriSignClass3PublicPrimaryCertificationAuthority-G5.crt in Resources */,
 				5294A1222040645400CD58E1 /* wt024.ttf in Resources */,
 				52810A7420732879006E094D /* ZJArticleOneCell.xib in Resources */,
 				52810A8120739D16006E094D /* abc.html in Resources */,
-				52575C37205BB4A1004F4317 /* Symantec Class 3 Secure Server CA - G4.cer in Resources */,
-				526762702057A41B00CACF2F /* *appautohomecomcn.crt in Resources */,
 				52575C34205BA30D004F4317 /* nswyFollowCell.xib in Resources */,
 				5294A1242040645400CD58E1 /* WCL-10.ttf in Resources */,
-				5267626A20579F4500CACF2F /* TrustAsia TLS RSA CA.cer in Resources */,
 				52584CB52064EFF80082F67F /* ZJArtileContentController.xib in Resources */,
+				52A99C6A207603B0003B58B5 /* TrustAsia DV SSL CA - G5.cer in Resources */,
 				52C06F3720463C580049BEC3 /* InfoPlist.strings in Resources */,
-				5267626B20579F4500CACF2F /* TrustAsia DV SSL CA - G5.cer in Resources */,
+				52A99C64207603B0003B58B5 /* kyfw.12306.cn.cer in Resources */,
 				525CA4352056636E00ED5B5C /* selfSignedRoot.cer in Resources */,
 				52810A7E2073597C006E094D /* ZJArticleDetialViewController.xib in Resources */,
 				5294A00B204058F800CD58E1 /* Assets.xcassets in Resources */,
